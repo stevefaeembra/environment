@@ -35,17 +35,33 @@ plugins=(git debian gnu-utils history-substring-search kate perl python)
 
 source $ZSH/oh-my-zsh.sh
 
+# Customize to your needs...
+
 unsetopt correct_all
+setopt SHARE_HISTORY
 
 # Better bindings for up/down keys to search history
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
-# Customize to your needs...
 
-#export TERM=xterm-256color
-export EDITOR=vim
+# Environment Variables.
+
+export PATH=$PATH:/usr/sbin:/root/bin:/usr/lib/jvm/java-6-openjdk/bin:/usr/local/eclipse:/usr/local/apache-maven-2.2.1/bin:/usr/lib/jvm/java-6-sun/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin
+
+export EDITOR=emacs
 export PAGER=less
+
+export LS_COLORS='rs=0:di=34:ln=36:mh=00:pi=33:so=35:do=35:bd=33:cd=33:or=31:su=37:sg=30:ca=30:tw=30:ow=34:st=37:ex=32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:';
+
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+export LANGUAGE=en_GB.UTF-8
+
+export TERM=xterm-256color
+
+
+# Aliases
 
 alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim'
 alias rm='rm -v'
@@ -72,10 +88,15 @@ alias lt='ls -lhrt --color=auto'
 alias mps='ps -fu $USER'
 alias h='history'
 alias du='du -h'
+alias df='df -h'
 alias vi='vim'
-#alias ssh='ssh -X'
+alias ssh='ssh -X'
 alias dc='cd'
 alias grep='grep --exclude-dir=.svn'
+alias et='ssh -p1973 -X homer'
+alias ide='$HOME/local/springsource/sts-2.8.0.RELEASE/STS'
+alias ack='ack-grep --ignore-dir=target'
+alias bc='bc -l'
 
 # Query the debian package manager database on already installed packages.
 # USAGE: cinst <pkgname>.
@@ -96,35 +117,30 @@ alias pdep='apt-cache showpkg'
 # Describe package.
 # USAGE: pdesc <pkgname>.
 alias pdesc='apt-cache show'
-
 alias upd='apt-get update'
 alias upg='apt-get upgrade'
 alias dist='apt-get dist-upgrade'
+
 
 # Gets file(s) of type ?? from http://.... plus from sub-dirs.
 # USAGE: get-all .xml http://foo.bar.com/dir/
 #alias ga='wget -qr --no-parent -nH'
 # Get file(s) of type mp3.
 alias gmp3='wget -r -l1 -t1 -nd -N -np -A.mp3 -erobots=off'
-alias et='ssh -p1973 -X homer'
-alias hibees='ssh -p1973 -X hibees'
-
-alias ide='$HOME/local/springsource/sts-2.8.1.RELEASE/STS'
-
-alias ack='ack-grep --ignore-dir=target'
 
 
 
 
-alias bc='bc -l'
 
-alias ga="git add"
-alias gd="git diff"
-alias gdf="git fetch $(current_branch) && git diff $(current_branch)"
+alias gm='git merge --ff-only'
+alias gd='git diff'
+alias gs='git stash'
+alias gsl='git stash list'
+alias gsp='git stash pop'
+alias gsc='git stash clear'
+alias gss='git stash show -p'
+alias gf='git fetch'
+alias gfd='git fetch && git diff $(current_branch) origin/$(current_branch)'
+alias gcl='git clone'
 
-export LS_COLORS='rs=0:di=34:ln=36:mh=00:pi=33:so=35:do=35:bd=33:cd=33:or=31:su=37:sg=30:ca=30:tw=30:ow=34:st=37:ex=32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:';
-
-export LC_ALL=en_GB.UTF-8
-export LANG=en_GB.UTF-8
-export LANGUAGE=en_GB.UTF-8
 
