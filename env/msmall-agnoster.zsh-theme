@@ -62,6 +62,9 @@ prompt_end() {
 prompt_context() {
   local user=`whoami`
 
+#  echo $user
+#  echo $USER
+#  echo $SSH_CLIENT
   if [[ "$user" != "$USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$user@%m"
   # else # Display only the host
@@ -74,14 +77,17 @@ prompt_git() {
   local ref dirty
 
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-    ZSH_THEME_GIT_PROMPT_DIRTY='±'
+    ZSH_THEME_GIT_PROMPT_DIRTY=' ±'
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
 
+    # If dirty repo.
     if [[ -n $dirty ]]; then
-      prompt_segment yellow black
+      # prompt_segment yellow black
+      prompt_segment 160 242
     else
-      prompt_segment green black
+      # prompt_segment green black
+      prompt_segment 28 237
     fi
 
     echo -n "${ref/refs\/heads\//⭠ }$dirty"
@@ -91,7 +97,8 @@ prompt_git() {
 # Dir: current working directory
 prompt_dir() {
 PROMPT_DIR='%{%F{white}%} %1~ '
-  prompt_segment blue black '%1~'
+#  prompt_segment blue black '%1~'
+  prompt_segment 29 236 '%1~'
 }
 
 # Status:
@@ -106,8 +113,12 @@ prompt_status() {
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
+  # [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
+  # [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
+  # [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
-  [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
+  # [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
+  [[ -n "$symbols" ]] && prompt_segment 21 15 "$symbols"
 }
 
 ## Main prompt
