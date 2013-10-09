@@ -1,0 +1,38 @@
+# Manual hunk edit mode -- see bottom for a quick guide
+@@ -26,4 +26,27 @@
+       config: {
+         group: 'map-tools'
+       }
++    }, {
++      script: 'common/toolbar/group',
++      config: {
++        groupName: 'overlays',
++        button: {
++          // Please note: everything in here will be added to ExtJS' ButtonGroup config;
++          // Consult the API on docs.sencha.com for a list of legal parameters;
++          // see group-ext.js for more details
++          text: 'Overlays',
++          iconCls: 'bookmark-toolbar-save-button'
++        }
++      }
++    }, {
++      script: 'common/toolbar/hillshading',
++      config: {
++        group: 'overlays'
++      }
++    }, {
++      script: 'geology/toolbar/jidi-images',
++      config: {
++        group: 'overlays',
++        visibleResolution: 35.278
++      }
+     },
+# ---
+# To remove '-' lines, make them ' ' lines (context).
+# To remove '+' lines, delete them.
+# Lines starting with # will be removed.
+#
+# If the patch applies cleanly, the edited hunk will immediately be
+# marked for staging. If it does not apply cleanly, you will be given
+# an opportunity to edit again. If all lines of the hunk are removed,
+# then the edit is aborted and the hunk is left unchanged.

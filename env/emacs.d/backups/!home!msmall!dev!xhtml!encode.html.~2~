@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=utf-8" />
+    
+    <title>COMPASS Broker</title>    
+    
+    <script language="JavaScript">
+    var _keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+
+      function encode(form) {
+        var input = form.input.value;
+        var encoding = encodeURI(input);
+//        console.log(input);
+//        console.log(encoding);
+
+        var p = document.getElementById("encoded");
+        p.innerHTML = encoding;
+      }
+
+      <!-- function decode(form) { -->
+      <!--   var input = form.input.value; -->
+      <!--   var decoding = unescape(input); -->
+
+      <!--   var p = document.getElementById("decoded"); -->
+      <!--   p.innerHTML = decoding; -->
+      <!-- } -->
+
+        function decode(input) {
+            var output = '';
+            var chr1, chr2, chr3;
+            var enc1, enc2, enc3, enc4;
+            var i = 0;
+
+            input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
+
+            while (i < input.length) {
+                enc1 = _keyStr.indexOf(input.charAt(i++));
+                enc2 = _keyStr.indexOf(input.charAt(i++));
+                enc3 = _keyStr.indexOf(input.charAt(i++));
+                enc4 = _keyStr.indexOf(input.charAt(i++));
+
+                chr1 = (enc1 << 2) | (enc2 >> 4);
+                chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+                chr3 = ((enc3 & 3) << 6) | enc4;
+
+                output = output + String.fromCharCode(chr1);
+
+                if (enc3 !== 64) {
+                    output = output + String.fromCharCode(chr2);
+                }
+                if (enc4 !== 64) {
+                    output = output + String.fromCharCode(chr3);
+                }
+            }
+            output = _utf8_decode(output);
+            return output;
+        };
+
+      function base64() {
+          var base64 = "IngiLCJ5IiwibmFtZSIKIi0yLjA4OTQwMzkyNTIxMzAxMiIsIjU3LjE1ODc1NTAzNDUyMjI3OSIsImEiCiItMi45ODI3MjY3NjYzODEzOTgiLCI1Ni40NjE5MjM3MzMwODUxOTMiLCJiIgoiLTMuMTg2OTExMzE3MTI4NTAyIiwiNTUuOTUxNTY2ODk3NDAyMjIzIiwiYyIKIi00LjI1MDI5MDQyODk1MTU3NSIsIjU1Ljg2NTMwODAxNTY3MjM0OCIsImQiCiItMy43ODQxMzYwNTMzMjk3NjciLCI1Ni4wMDA5NTgyNjQyNjM3MDgiLCJlIgoiLTQuMjI1NTE3NDE4ODU1ODM0IiwiNTcuNDc2ODIzNjc3NDIzMTA2IiwiZiIK";
+
+          var annotation = decode(base64);
+          console.log('Annotation: ', JSON.parse(annotation));
+      }
+    </script>
+  </head>
+
+  <body onload="base64();">
+    <div id="view">
+      <h1>
+      <p>Useful test page, used for sending CSW requests to the server.</p>
+      </h1>
+      
+      <h2>Encoding</h2>
+      <form name="encodingForm" action="" method="get">
+        <textarea id="input" name="input" rows="10" cols="80"></textarea>
+        <input type="button" name="submit" value="Submit" onclick="encode(this.form); return false;" />
+      </form>
+      
+      <p id="encoded"></p>
+
+      <br/>
+      <br/>
+      <h2>Decoding</h2>
+      <form name="decodingForm" action="" method="get">
+        <textarea id="input" name="input" rows="10" cols="80"></textarea>
+        <input type="button" name="submit" value="Submit" onclick="decode(this.form); return false;" />
+      </form>
+      
+      <p id="decoded"></p>
+    </div>
+  </body>
+</html>

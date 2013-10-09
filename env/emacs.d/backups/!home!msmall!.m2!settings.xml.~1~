@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <profiles>
+    <profile>
+      <id>local</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+
+      <repositories>
+        <repository>
+          <id>edina-repository</id>
+          <name>Local Repository for Maven</name>
+          <url>https://devel.edina.ac.uk/maven-repository</url>
+          <layout>default</layout>
+        </repository>
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>edina</id>
+          <name>Local Repository for Maven</name>
+          <url>https://devel.edina.ac.uk/maven-repository</url>
+          <layout>default</layout>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+  <servers>
+    <server>
+      <id>edina-site</id>
+      <username>subvrsn</username>
+    </server>
+
+    <server>
+      <id>edina-repository</id>
+      <username>subvrsn</username>
+    </server>
+
+    <server>
+      <id>edina-snapshot-repository</id>
+      <username>subvrsn</username>
+    </server>
+  </servers>
+</settings>
+

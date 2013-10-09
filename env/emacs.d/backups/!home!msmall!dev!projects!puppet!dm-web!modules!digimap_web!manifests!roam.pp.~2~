@@ -1,0 +1,23 @@
+# == Class: digimap_web::roam
+#
+# Creates the tomcat application required.
+#
+# === Parameters
+#
+# No parameters
+#
+#
+# === Example
+#
+# This is included in the main digimap_web class as follows
+#    class { 'digimap_web::roam': }
+#
+# 
+class digimap_web::tomcat_apps {    
+  # Each tomcat application is created here calling the function digimap_web::add_tomcat_application
+  digimap_web::add_tomcat_application { "roam-app":
+        tomcat_port          => "11082",
+        tomcat_control_port  => '11081',
+        jvm_envs             => '-server -Xmx1024m -Xms128m -XX:MaxPermSize=128m -Dcom.sun.management.jmxremote.authenticate=false',
+     }
+}

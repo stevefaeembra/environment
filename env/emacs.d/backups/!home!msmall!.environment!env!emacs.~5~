@@ -1,0 +1,434 @@
+;;;;
+;
+;
+;-------------------------------------------------------------------------------
+
+;;; Paths and directories
+(add-to-list 'load-path "~/.emacs.d/conf")
+(add-to-list 'load-path "~/.emacs.d/elisp")
+(load-file "~/.emacs.d/conf/config.el")
+
+
+
+(add-to-list 'load-path "~/.emacs.d")    ; This may not be appeared if you have already added.
+;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+;(add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete-1.3.1")
+;(require 'auto-complete-config)
+;(ac-config-default)
+
+
+
+;(load "~/.emacs.d/elisp/nxhtml/autostart.el")
+
+;;(load "~/.emacs.d/elisp/git.el")
+;;(load "~/.emacs.d/elisp/git-blame.el")
+;;(require 'git)
+
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(autoload 'espresso-mode "espresso")
+
+
+
+;; python-mode settings
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(setq interpreter-mode-alist(cons '("python" . python-mode)
+                             interpreter-mode-alist))
+;; path to the python interpreter, e.g.: ~rw/python27/bin/python2.7
+(setq py-python-command "python")
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+
+;; pymacs settings
+(setq pymacs-python-command py-python-command)
+(autoload 'pymacs-load "pymacs" nil t)
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+
+(require 'pycomplete)
+
+;;;-----------------------------------------------------------------------------
+;;;
+;;; VARIABLE DECLARATIONS.
+;;;
+;;;-----------------------------------------------------------------------------
+;; Do NOT display splash screen.
+(setq inhibit-splash-screen t)
+
+;; User stuff.
+(setq user-full-name "Mark Small")
+(setq user-name "msmall1")
+(setq user-mail "m.small@ed.ac.uk")
+
+;; Set word-wrap
+;;(setq ispell-program-name "aspell" ispell-extra-args '("--sug-mode=ultra"))
+
+;;(setq-default fill-column 80)
+;;(setq text-mode-hook '(lambda () (auto-fill-mode 1)
+;;                                 (flyspell-mode 1)))
+
+(setq kill-whole-line t) ;; Kill line also removes \n
+(setq default-major-mode 'text-mode) ;; New buffers are text mode
+
+;;(setq text-mode-hook '(lambda () (flyspell-mode 1)))
+
+
+;; Modify the mode-line, this is a cleaner setup than the default.
+(setq default-mode-line-format '("-" 
+                                mode-line-mule-info
+                                mode-line-modified
+                                mode-line-frame-identification
+                                mode-line-buffer-identification
+                                "  "
+                                global-mode-string
+                                "   %[(" mode-name model-line-process minor-mode-alist "%n" ")%]--"
+                                (line-number-mode "L%l--")
+                                (column-number-mode "C%c--")
+                                (-3 . "%p")
+                                "-%-"))
+
+(global-set-key [("meta s")] 'search-backwards)
+;;
+(setq message-log-max nil)
+;(kill-buffer "*Messages*")
+
+;; Provide a useful error trace if loading this .emacs fails.
+(setq debug-on-error t)
+
+;; Set the garbage collection to 100 times that of the default.
+;; This is supposed to significantly increase startup time.
+(setq gc-cons-threshold 50000000)
+
+;; Include current buffer name in the title bar.
+(setq frame-title-format '(buffer-file-name "%f" ("%b")))
+
+;; Change pasting behaviour, normally pastes where the mouse is at
+;; which is not necessarily where the cursor is.  Change this to
+;; always paste where the cursor is.
+(setq mouse-yank-at-point t)
+
+;; Disable CTRL+Z from backgrounding emacs.
+(global-set-key [(control z)] nil)
+
+;; Set default time to autosave.
+(setq auto-save-timeout 1800)
+
+;; Always indent using spaces, never tabs.
+(setq-default indent-tabls-mode nil)
+
+;; Save backups to a directory, not in the current directory.
+(setq make-backup-files t)
+;; Enable versioning of backup files (keep last 5 versions).
+(setq version-control t)
+;;       delete-old-versions t
+;;       kept-new-versions 5
+;;       kept-old-versions 5)
+;; Save all backup files to specified directory.
+(setq backup-directory-alist '((".*" .  "~/.emacs.d/backups")))
+;; Enable saving of backups.
+;(setq save-abbrevs t)
+
+
+;; Fundamental mode is least useful, set default to text-mode.
+(setq default-major-mode 'text-mode)
+
+;; Disable indents using tabs
+;; below one not working.
+(setq-default indent-tabs-mode nil)
+
+;; Use spaces rather than spaces and tabs.
+(setq unicon-indent-use-only-spaces t)
+
+;; Edit version controlled files without asking.
+(setq vc-follow-symlinks t)
+
+;; Set default indentation level.
+(setq standard-indent 2)
+
+;; Show line numbers in mode line.
+(setq line-number-mode t)
+;; Show column numbers in mode line.
+(setq column-number-mode t)
+
+;; Fix the huge jumps when scrolling between windows.
+(setq scroll-conservatively 5)
+
+;; Keep cursor at same column when pgup and pgdown.
+(setq scroll-preserve-screen-position t)
+
+;; Start scrolling when 2 lines from top/bottom.
+(setq scroll-margin 2)
+
+;; Text files (including code files) should end with a newline.
+(setq require-final-newline t)
+
+;; Automagically font-lock buffers which are covered by various modes.
+(setq emacs-lisp-mode-hook '(lambda () (font-lock-mode 1))
+      lisp-mode-hook '(lambda () (font-lock-mode 1))
+      c-mode-hook '(lambda () (font-lock-mode 1))
+      c++-mode-hook '(lambda () (font-lock-mode 1))
+      html-mode-hook '(lambda () (font-lock-mode 1))
+      makefile-mode-hook '(lambda () (font-lock-mode 1))
+      shell-mode-hook '(lambda () (font-lock-mode 1))
+      dired-mode-hook '(lambda () (font-lock-mode 1)))
+
+
+;; Associate certain filename extensions with corresponding modes.
+(setq auto-mode-alist (cons '("\\.text$" . text-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.txt$" . text-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.awk$" . awk-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.sh$" . shell-script-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.zsh$" . shell-script-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.zsh-theme$" . shell-script-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.emacs$" . lisp-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.html$" . nxml-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.xml$" . nxml-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.xsl$" . nxml-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.jsp$" . nxml-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.owl$" . nxml-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.bash_" . shell-script-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.php$" . php-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.c$" . c-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.java$" . java-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.groovy$" . java-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.json$" . espresso-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+;;;(setq auto-mode-alist (cons '("\\.js$" . js2-mode) auto-mode-alist))
+;(setq auto-mode-alist (cons '("\\.tt$" . tt-mode) auto-mode-alist))
+
+
+;; psgml loading.
+;(autoload 'xml-mode "psgml" "Major mode to edit XML files." t)
+;(setq auto-mode-alist (nconc '(("\\.html$" . xml-mode)) auto-mode-alist))
+;(setq auto-mode-alist (nconc '(("\\.xml$" . xml-mode)) auto-mode-alist))
+;
+;(add-hook 'xml-mode-hook
+;  (function (lambda()
+;    ; Face creation.
+;    (make-face 'sgml-comment-face)
+;    (make-face 'sgml-start-tag-face)
+;    (make-face 'sgml-end-tag-face)
+;    (make-face 'sgml-doctype-face)
+
+;; Replace default perl-mode with cperl-mode.
+(mapc
+  (lambda (pair)
+    (if (eq (cdr pair) 'perl-mode)
+      (setcdr pair 'cperl-mode)))
+  (append auto-mode-alist interpreter-mode-alist))
+
+;;
+(set-default 'auto-mode-alist (append '(("\\.el$" . lisp-mode)) auto-mode-alist))
+(set-default 'auto-mode-alist (append '(("TODO$" . text-mode)) auto-mode-alist))
+(set-default 'auto-mode-alist (append '(("README$" . text-mode)) auto-mode-alist))
+
+
+(add-hook 'cperl-mode-hook 'n-cperl-mode-hook t)
+(defun n-cperl-mode-hook ()
+  (setq cperl-indent-level 2) ; Set indentation level.
+  (setq cperl-electric-keywords t) ; Expands keywords such as foreach.
+  (setq cperl-continued-statement-offset 0))
+
+;;;-----------------------------------------------------------------------------
+;;;
+;;; HOTKEY DEFINITIONS.
+;;;
+;;;-----------------------------------------------------------------------------
+;; Bind hotkey C-x, / to comment or uncomment the selected region.
+(global-set-key [(control x)(/)] 'comment-or-uncomment-region)
+
+;; Bind hotkey C-c, C-d to find which function hotkey is bound to.
+(global-set-key [(control c)(control d)] 'describe-key)
+
+;; Bind hotkey C-c, C-b to browse the kill ring.
+(global-set-key [(control c)(control b)] 'browse-kill-ring)
+
+;; Bind hotkey to function dotemacs.
+(global-set-key [(f12)] 'dotemacs)
+
+;; Set C-x, C-g as goto hotkey.
+(global-set-key [(control x)(control g)] 'goto-line)
+
+;; Change C-x, C-b behaviour so it uses bs. shows only interesting buffers.
+(global-set-key [(control x)(control b)] 'bs-show)
+
+;; Bind hotkey C-x, C-a to mark all text in the current buffer.
+(global-set-key [(control x)(control a)] 'mark-whole-buffer)
+
+;;
+(global-set-key [(control x)(control r)] 'replace-string)
+
+;; Suspend emacs.
+(global-set-key [(control z)] 'suspend-emacs)
+
+
+;;;-----------------------------------------------------------------------------
+;;;
+;;; HOOK DEFINITIONS.
+;;;
+;;;-----------------------------------------------------------------------------
+;; Do NOT echo passwords when communicating with interactive programs.
+(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
+
+;; Use ANSI colours within shell-mode.
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; Load function 'emacs-reloaded' once 'after-init-hook' is finished.
+;; (add-hook 'after-init-hook 'emacs-reloaded)
+
+
+
+
+;;;-----------------------------------------------------------------------------
+;;;
+;;; MISC DEFINITIONS.
+;;;
+;;;-----------------------------------------------------------------------------
+;; Interactive buffer switching (list buffers, selects while typing).
+(iswitchb-mode 1)
+
+;; Turn on Mouse wheel scrolling.
+(if (load "mwheel" t)
+  (mwheel-install))
+
+;; Disable over-write mode.
+(put 'overwrite-mode 'disabled t)
+
+;; Activate font-lock-mode for syntax colouring.
+(global-font-lock-mode t)
+
+;; Always flash for parenthisis.
+(show-paren-mode 1)
+(setq show-paren-mismatch t)
+
+;; Do NOT enter search and replace args if buffer is read-only.
+(defadvice query-replace-read-args (before barf-if-buffer-read-only activate)
+                                   "Signal a `buffer-read-only` error if the current buffer is read-only."
+                                   (barf-if-buffer-read-only))
+
+;; Turn off status bar if not in a windowed system.
+(menu-bar-mode (if window-system 1 -1))
+
+;; Use y or n instead of yes or no at prompts.
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Accelerate the cursor when scrolling.
+(load "accel" t t)
+
+;; Push the mouse out of the way when the cursor approaches.
+(mouse-avoidance-mode 'jump)
+
+;; Allow editing of tar/jar/zip files.
+(auto-compression-mode 1)                                
+
+;; Highlight marked regions.
+(transient-mark-mode 1)
+
+;; Set completion in the mini-buffer.
+(icomplete-mode t)
+
+
+(setq backup-by-copying t)
+
+
+;-------------------------------------------------------------
+; EXPERIMENTAL
+;-------------------------------------------------------------
+
+;; (defun ar-comment-uncomment (&optional arg)
+;;   "Comments or uncomments a line according to state before.  Calls 
+;;    `comment-region' (unless line is already commented, in which case it calls 
+;;    `uncomment-region').  With key pressed, continues with next line.  Works on 
+;;    region if mark and transient-mark-mode are active.  With arg greater than 1 
+;;    works on arg lines, neglecting region.  With arg equal 1 copies, 
+;;    comments/uncomments and reinserts line."
+;;   (interactive "*P")
+;;   ;; (comment-normalize-vars)
+;;   (let ((arg (if arg (prefix-numeric-value arg) 0))
+;;         (start (if (and mark-active transient-mark-mode)
+;;                    (region-beginning)))
+;;         (startline (count-lines 1 (point)))
+;;         (end (if (and mark-active transient-mark-mode)
+;;                  (region-end)))
+;;         (endline (if (and mark-active transient-mark-mode)
+;;                      (count-lines 1 (region-end))
+;;                    (count-lines 1
+;;                                 (save-excursion
+;;                                     (forward-line arg)
+;;                                     (line-end-position)))))
+;;         (line-to-comment-or-uncomment (buffer-substring-no-properties
+;; (line-beginning-position) (line-end-position))))
+;;     (cond ((eq 1 arg) ;; comment and reinsert
+;;            (progn
+;;              (comment-or-uncomment-region (line-beginning-position)
+;; (line-end-position))
+;;              (indent-according-to-mode)
+;;              (end-of-line)
+;;              (newline)
+;;              (insert line-to-comment-or-uncomment)
+;;              (indent-according-to-mode)))
+;;           ((< 1 arg) ;; comment/uncomment as lines are given
+;;            (while (<= 1 (prefix-numeric-value arg))
+;;              (comment-or-uncomment-region (line-beginning-position)
+;; (line-end-position))
+;;              (indent-according-to-mode)
+;;              (end-of-line)
+;;              (forward-line 1)
+;;              (indent-according-to-mode)
+;;              (setq arg (1- arg))))
+;;           ((and start end) ;; region is active
+;;            (comment-or-uncomment-region start end)
+;;            (indent-according-to-mode)
+;;            (if (eobp)
+;;                (progn (newline)
+;;                       (indent-according-to-mode))
+;;              (progn
+;;                (forward-line 1)
+;;                (indent-according-to-mode))))
+;;           (t ;; just one line
+;;            (progn (comment-or-uncomment-region (line-beginning-position)
+;; (line-end-position))
+;;                   (indent-according-to-mode)
+;;                   (if (eobp)
+;;                       (progn (newline)
+;;                              (indent-according-to-mode))
+;;                     (progn
+;;                       (forward-line 1)
+;;                       (indent-according-to-mode)
+;; ))))))) 
+
+
+
+;; Add mutiple major modes.
+;(require 'mmm-auto)
+;; Only turn on mmm-mode when necessary.
+;(setq mmm-global-mode 'maybe)
+
+
+
+
+
+
+
+
+
+
+; End of file. ------------------------------------------------
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(mumamo-background-chunk-major ((((class color) (min-colors 8)) nil)))
+ '(mumamo-background-chunk-submode1 ((((class color) (min-colors 8)) nil)))
+ '(mumamo-background-chunk-submode2 ((((class color) (min-colors 8)) nil)))
+ '(mumamo-background-chunk-submode4 ((((class color) (min-colors 8)) nil))))
+
+;;(set-background-color "grey")

@@ -1,0 +1,362 @@
+############################################################
+#
+# COMMON PROPERTIES
+#
+############################################################
+
+#clive.url=http://digidev.edina.ac.uk:7992/clive/clive?
+#clive.url=http://localhost:38080/clive/clive?
+clive.url=http://129.215.169.182:58080/clive/clive?
+
+jdbc.address=jdbc:postgresql://devel.edina.ac.uk:5432/dev_digimap
+jdbc.url=jdbc:postgresql://devel.edina.ac.uk:5432/dev_digimap
+jdbc.driver=org.postgresql.Driver
+
+
+service.version=dev
+
+# Schools mapper overrides this setting.
+mapserver.mapproxy.url=http://129.215.169.182:58080/mapproxy/wmsMap?
+mapserver.mapproxy.featureinfo.url=http://129.215.169.182:58080/mapproxy/wmsMap?
+
+#mapserver.tilecache.os.url=http://localhost:51878/tilecache/tilecache.py?
+mapserver.tilecache.os.url=http://dee.edina.ac.uk:9901/os_cache/tilecache.py?
+
+mapserver.raster.url=http://dee.edina.ac.uk:7992/
+
+# Schools mapper overrides this setting.
+authorisation.class=edina.digimap.authorisation.AnonymousAuthorisation
+#authorisation.class=edina.digimap.authorisation.AuthorisationImpl
+
+
+# To get leged data from dbase.
+legends.jdbc.address=jdbc:postgresql://devel.edina.ac.uk:5432/dev_digimap_data
+
+
+
+# Used to get global stuff e.g. header images.
+root.url=http://wyvis.edina.ac.uk:7180/
+
+
+
+# Logging should be switched off for dev, only needed once deployed.
+# IS THIS EVEN USED ANYMORE SINCE WE INTERACT WITH THE LOGGING SERVER.
+logging.date.format=dd-MMM-yyyy HH:mm:ss
+logging.address=jdbc:postgresql://devel.edina.ac.uk:5432/dev_digimap
+logging.username=digimap
+logging.password=THATp1geon
+logging.driver=org.postgresql.Driver
+logging.logpath=./
+
+# Dev Logging Server.
+logging.host=devel.edina.ac.uk
+logging.port=2323
+# Live Logging Server.
+# logging.host=ness.edina.ac.uk
+# logging.port=2325
+
+# Not sure what this is for, comment out until something needs it.
+public_docs.dir=./public_docs/
+#digimap.dynamic.root=/home/msmall/tmp/digimap/
+tmp.dir=/home/msmall/tmp/
+temp.dir=tmp/
+
+# NOTE: RECENTLY REMOVED THIS, SHOULD BE OBSOLETE, ANY VALUES NECESSARY SHOULD BE MOVED HERE OR SOMEWHERE MORE SENSIBLE.
+athens.ini=/home/msmall/tmp/athens_login.ini
+
+
+EDINA CONTACTS (PUT IN LIVE)                                                                                                                                                                                                                                                  
+smtp.host=mailrelay.ed.ac.uk
+edina.contact.email=m.small@ed.ac.uk
+edina.contact.phone=0131 650 3302
+
+
+
+# Removed from athens.ini as I would like to see us move away from it.
+session.dir=/home/msmall/tmp/sessions
+session.id=DigimapID
+# Session expired text.
+sessionexpired.text=Your session has expired. You will be re-directed to the login page. Please log in again if you want to continue.                                                                                                                                         
+session.expired.url=http://www.edina.ac.uk/digimap/login-wyvis.shtml?error=sessionexpired
+#session.timeout=36000
+# 24 hours
+session.timeout=86400
+session.expired.text=Your session has expired. You will be re-directed to the login page. Please log in again if you want to continue.
+
+cache.inspect.period=1200
+
+# # Key used to access Unlock Service for searching, searching
+# # is tied down to a key generated from the IP of the machine
+# # making the search.
+# # Set key (tied to machine's IP).
+# unlock.key=421f4e25ecc517c808b8a4b82ce4cef8
+# # Url to the unlock web service.
+# unlock.url=http://unlock.edina.ac.uk/ws/search
+# # Set response format
+# unlock.format=json
+# # Limit responses to those in UK only.
+# unlock.country=uk
+# unlock.max.rows=200
+# unlock.postcode.sql=select postcode\, easting\, northing from os.postcodes where postcode like ?
+# jdbc.postcode.sql=select postcode\,easting\, northing from os.postcode where replace(postcode\, ' '\, '') = ?
+# unlock.placename.sql=select id\, dbname\, name\, htmlname\, xpos\, ypos\, county from os.gaz_50k where dbname ilike ? or county ilike ? or htmlname ilike ? or name ilike ? 
+
+cookie.name=DigimapID
+cookie.path=/
+cookie.domain=.edina.ac.uk
+
+# how many annotations user can save in 'my annotations'
+#default = 100
+annotations.save.slots=5
+#default = 500
+annotations.max.features=50
+# digibeta/alder
+#gis.translation.server.url=http://alder.edina.ac.uk:11055/gistranslation-server
+gis.translation.server.url=http://dm-services-kb.priv.edina.ac.uk:11055/gistranslation-server
+ 
+
+
+############################################################
+#
+# DIGIMAP INTERFACE SPECIFIC PROPERTIES
+#
+############################################################
+
+login.enabled=false
+# jdbc.user=digimap_interface
+# jdbc.pass=13HiLhta
+collections=digimap,historic,geology,marine,environment
+
+digimap.url=http://129.215.169.182:58080/digimap/home?l=true
+redirect.url=http://129.215.169.182:58080/digimap/redirect?digimapsession=
+redirect.registration.url=http://wyvis.edina.ac.uk:7180/main/SecurityAnswerServlet?stage=startRegistration
+
+#filepath=dev/projects/interface
+
+digimap.home.relative.url=/home
+
+session.ended.url=http://digidev.edina.ac.uk:7180/digimap/home
+session.update.period=600
+
+# period between calls to the 'inspector' thread (SessionFileUserDetailsDao.java) [seconds]
+# session timeout is 20 minutes, cleaning cached map every 5 minutes 
+cache.inspect.period = 60
+
+#EDINA CONTACTS (PUT IN LIVE)
+smtp.host=localhost
+edina.contact.email=m.small@ed.ac.uk
+edina.contact.phone=0131 650 3302
+
+annotations.save.slots=100
+
+can.log.in=true
+
+############################################################
+#
+# ORDNANCE SURVEY MAPPER SPECIFIC PROPERTIES
+#
+############################################################
+
+os.copyright.year=2012
+# Not sure what this is for, comment out until something needs it.
+digimap.static.root=/home/msmall/tmp/osmapper/
+
+mapserver.tilecache.overview.os.url=http://dee.edina.ac.uk:9901/historic_cache/tilecache.py?
+
+
+############################################################
+#
+# ENVIRONMENT MAPPER SPECIFIC PROPERTIES
+#
+############################################################
+
+# os.copyright.year=2012
+# # Not sure what this is for, comment out until something needs it.
+# digimap.static.root=/home/msmall/tmp/osmapper/
+digimap.static.root=/home/msmall/tmp/enviro/
+
+mapserver.tilecache.overview.enviro.url=http://dee.edina.ac.uk:9901/historic_cache/tilecache.py?
+
+max.upload.size.bytes=5000000
+
+
+############################################################
+#
+# HISTORIC MAPPER SPECIFIC PROPERTIES
+#
+############################################################
+
+# Not sure what this is for, comment out until something needs it.
+digimap.static.root=/home/msmall/tmp/historicmapper/
+
+mapserver.tilecache.historic.url=http://dee.edina.ac.uk:9901/historic_cache/tilecache.py?
+mapserver.raster.url=http://dee.edina.ac.uk:7992/
+# mapserver.raster.url=http://localhost:51879/
+
+
+historic.copyright.year=2009
+
+
+data.jdbc.address=jdbc:postgresql://devel.edina.ac.uk:5432/dev_digimap_data
+data.jdbc.driver=org.postgresql.Driver
+        
+
+
+############################################################
+#
+# GEOLOGY MAPPER SPECIFIC PROPERTIES
+#
+############################################################
+
+# # Not sure what this is for, comment out until something needs it.
+# digimap.static.root=/home/msmall/tmp/geologymapper/
+
+mapserver.tilecache.geology.url=http://dee.edina.ac.uk:9901/geology_cache/tilecache.py?
+
+mapserver.tilecache.overview.bgs.url=http://dee.edina.ac.uk:9901/historic_cache/tilecache.py?
+
+geognosis.bgs625k.url=http://lui.edina.ac.uk:4352/OgcService/WMS.impl?
+geognosis.bgs250k.url=http://lui.edina.ac.uk:4351/OgcService/WMS.impl?
+geognosis.bgs50k.url=http://lui.edina.ac.uk:4331/OgcService/WMS.impl?
+
+geology.copyright.year=2012
+
+
+
+############################################################
+#
+# MARINE MAPPER SPECIFIC PROPERTIES
+#
+############################################################
+
+# Not sure what this is for, comment out until something needs it.
+digimap.static.root=/home/msmall/tmp/marinemapper/
+
+mapserver.tilecache.marine.url=http://dee.edina.ac.uk:9901/marine_cache/tilecache.py?
+
+geognosis.marine1.featureinfo.url=http://lui.edina.ac.uk:4355/OgcService/WMS.impl?
+geognosis.marine2.featureinfo.url=http://lui.edina.ac.uk:4356/OgcService/WMS.impl?
+geognosis.marine3.featureinfo.url=http://lui.edina.ac.uk:4357/OgcService/WMS.impl?
+geognosis.marine4.featureinfo.url=http://lui.edina.ac.uk:4358/OgcService/WMS.impl?
+
+marine.copyright.year=2012
+
+
+############################# Environment Mapper ###################################
+
+mapserver.tilecache.enviro.url=http://dee.edina.ac.uk:9901/ceh_cache/tilecache.py?
+mapserver.tilecache.overview.enviro.url=http://dee.edina.ac.uk:9901/historic_cache/tilecache.py?
+############################################################
+#
+# DATA DOWNLOAD SPECIFIC PROPERTIES
+#
+############################################################
+
+# # Not sure what this is for, comment out until something needs it.
+# ordermaster.controller=rmi://alder.edina.ac.uk:31099
+
+
+
+############################################################
+#
+# ENVIRONMENT DOWNLOAD SPECIFIC PROPERTIES
+#
+############################################################
+
+# # Not sure what this is for, comment out until something needs it.
+# ordermaster.controller=rmi://alder.edina.ac.uk:31099
+
+
+
+
+############################################################
+#
+# SCHOOLS MAPPER SPECIFIC PROPERTIES
+#
+############################################################
+
+# service.version=beta
+
+# logging.port=2325
+
+# authorisation.class=edina.digimap4schools.authorisation.SchoolsAnonymousAuthorisation
+# mapproxy.authorisation.class=edina.digimap4schools.authorisation.SchoolsAnonymousAuthorisation
+# #authorisation.class=edina.digimap4schools.authorisation.SchoolsAuthorisationImpl
+# #mapproxy.authorisation.class=edina.digimap4schools.authorisation.SchoolsAuthorisationImpl
+
+# mapserver.mapproxy.url=http://localhost:58080/mapproxy/wmsMap?imagepadding=true
+# mapserver.tilecache.url=http://ness.edina.ac.uk:8077/tilecache/tilecache.py?
+# #mapserver.tilecache.overview.os.url=http://dee.edina.ac.uk:9901/historic_cache/tilecache.py?
+
+# # authorisation
+# # FIXME - redirect to the right place with appropriate message.
+# sessionfile.path=/home/msmall/tmp/cosmo-wayf
+# # timeout in seconds
+# sessionfile.timeout=7200
+
+# # session cache cleaning period [seconds] 
+# session.cache.clean.period=120
+
+# cookie.domain=.edina.ac.uk
+# cookie.path=/
+
+# redirect.url.header=http://digimapforschools.edina.ac.uk
+# redirect.url.timedout=http://localhost:51879/login.html?error=timedout
+# redirect.url.notauthorised=http://localhost:51879/login.html?error=notauthorised
+# redirect.url.wayflessurl=https://vsp2.edina.ac.uk/digischools/Shibboleth.sso/WAYF/UKFederation?entityID=
+
+# application.url=http://localhost:58080/cosmo/osmapper
+# shibb.url=https://sp.edina.ac.uk/digischools/authz3?service=digischools_dev
+
+# error.timedout="your timed out"
+# error.notauthorised="Your login failed"
+
+
+# login.page.url=http://localhost:51875/login.html
+# help.page.url=http://localhost:51875/help/help.html
+
+# print.file.name=digimap_for_schools.pdf
+
+# help.path=/var/www/public_docs
+# help.extension=.html
+
+
+
+
+
+######################################################################################################################################
+# added for new ROAM 03/2013 (please note some of these are duplicates of props above but stored with the 'global.' prefix in the key
+######################################################################################################################################
+global.jdbc.url=jdbc:postgresql://devel.edina.ac.uk:5432/dev_digimap
+global.jdbc.data.url=jdbc:postgresql://devel.edina.ac.uk:5432/dev_digimap_data
+global.jdbc.digiwww.url=jdbc:postgresql://devel.edina.ac.uk:5432/dev_digimap_data
+
+global.enviro.jdbc.user=enviro_mapper
+global.enviro.jdbc.pass=Strat0Murk
+
+global.os.jdbc.user=osmapper
+global.os.jdbc.pass=encorefois
+
+global.geology.jdbc.user=geology_mapper
+global.geology.jdbc.pass=R0ckTipe
+
+global.historic.jdbc.user=historic_mapper
+global.historic.jdbc.pass=ALLt1066
+
+global.marine.jdbc.user=marine_mapper
+global.marine.jdbc.pass=HummB0ldt
+
+global.jdbc.data.user=digimap
+global.jdbc.data.pass=THATp1geon
+
+global.jdbc.digiwww.user=digiwww
+global.jdbc.digiwww.pass=QangDwck!
+
+global.tmp.dir=tmp/
+global.clive.url=http://digidev.edina.ac.uk:7992/clive/clive?
+
+global.print.copyright.enviro=Based upon LCM 1990 2000 and 2007 © NERC (CEH) 2011. Contains Ordnance Survey data © Crown Copyright 2007. © third party licensors.
+global.print.copyright.os=TODO this is copyright for OS printed maps placeholder
+global.print.copyright.marine=TODO this is copyright for marine printed maps placeholder
+global.print.copyright.historic=TODO this is copyright for historic printed maps placeholder
+global.print.copyright.geology=TODO this is copyright for geology printed maps placeholder

@@ -1,0 +1,57 @@
+##BETA VERSION
+# used by the capabilities generation
+legend.root.url=http://localhost/legend_icons
+clive.root.url=http://localhost/clive/clive?
+#
+carto.server=http://wyvis.edina.ac.uk:7180
+
+# host + port + path must form a valid url
+# NOTE the / at the start of path
+# This is a comma separated list of hostnames
+
+cadcorp.wsdl.host=http://lui.edina.ac.uk
+#cadcorp.wsdl.host=http://assynt1.edina.ac.uk
+cadcorp.wsdl.path=/GeognoSIS/GeognoSIS.wsdl
+cadcorp.request.path=/OgcService/WMS.impl?
+
+# Ports for each product (matches geognosis instance port) 
+MasterMap.port=4330
+Geology50k.port=4331
+Geology250k.port=4351
+Geology625k.port=4352
+Geology625k_GB.port=4353
+Raster10k.port=4332
+Historic.port=4333
+Strategi.port=4334
+Midscale.port=4335
+MasterMapPlan.port=4336
+Codepoint.port=4337
+Raster25k.port=4338
+Raster50k.port=4339
+Miniscale.port=4340
+GB.port=4341
+Cohabit.port=4342
+Profile.port=4343
+Codepoint_Query.port=4337
+Marine.port=4355
+VML.port=4359
+VMLPlan.port=4362
+VMLStreet.port=4363
+VMLRaster10k.port=4364
+Historic.port=4333
+Fiona.port=4344
+LCM.port=4361
+
+# Don't delete these - need for testing
+SchoolsSmallScale.port=4345
+SchoolsRaster50k.port=4346
+SchoolsRaster25k.port=4347
+SchoolsRaster10k.port=4348
+SchoolsMasterMap2500.port=4349
+SchoolsMasterMap1250.port=4350
+
+
+cadcorp.swd.path=G:/swds/
+
+# If an exception, large files save to this directory.
+tmp.dir=/home/msmall/tmp

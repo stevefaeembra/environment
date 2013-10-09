@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration trace="true">
+
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <param name="target" value="System.out" />
+    <param name="threshold" value="trace" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern"
+        value="%d{ISO8601} %-4r %-5p [%t] %X{client} %X{username} %20c{1} %3x:%L - %m%n" />
+      </layout>
+    </appender>
+
+    <appender name="os" class="org.apache.log4j.RollingFileAppender">
+      <param name="File" value="${catalina.base}/logs/roam-os.log" />
+      <param name="Append" value="false" />
+      <param name="MaxFileSize" value="50MB" />
+      <param name="Threshold" value="trace" />
+      <param name="MaxBackupIndex" value="5" />
+      <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern"
+          value="%d{ISO8601} %-4r %-5p [%t] %X{client} %X{username} %20c{1} %3x:%L - %m%n" />
+        </layout>
+
+        <filter class="edina.digimap.roam.logging.log4j.WithContextStringMatchFilter">
+          <param name="ContextPropertyToMatch" value="client" />
+          <param name="ContextPropertyValueToMatch" value="client-os" />
+          <param name="AcceptOnMatch" value="true" />
+        </filter>
+        <filter class="org.apache.log4j.varia.DenyAllFilter" />
+      </appender>
+
+      <appender name="marine" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.base}/logs/roam-marine.log" />
+        <param name="Append" value="false" />
+        <param name="MaxFileSize" value="50MB" />
+        <param name="Threshold" value="trace" />
+        <param name="MaxBackupIndex" value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+          <param name="ConversionPattern"
+            value="%d{ISO8601} %-4r %-5p [%t] %X{client} %X{username} %20c{1} %3x:%L - %m%n" />
+          </layout>
+
+          <filter class="edina.digimap.roam.logging.log4j.WithContextStringMatchFilter">
+            <param name="ContextPropertyToMatch" value="client" />
+            <param name="ContextPropertyValueToMatch" value="client-marine" />
+            <param name="AcceptOnMatch" value="true" />
+          </filter>
+          <filter class="org.apache.log4j.varia.DenyAllFilter" />
+        </appender>
+
+        <appender name="geology" class="org.apache.log4j.RollingFileAppender">
+          <param name="File" value="${catalina.base}/logs/roam-geology.log" />
+          <param name="Append" value="false" />
+          <param name="MaxFileSize" value="50MB" />
+          <param name="Threshold" value="trace" />
+          <param name="MaxBackupIndex" value="5" />
+          <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+              value="%d{ISO8601} %-4r %-5p [%t] %X{client} %X{username} %20c{1} %3x:%L - %m%n" />
+            </layout>
+
+            <filter class="edina.digimap.roam.logging.log4j.WithContextStringMatchFilter">
+              <param name="ContextPropertyToMatch" value="client" />
+              <param name="ContextPropertyValueToMatch" value="client-geology" />
+              <param name="AcceptOnMatch" value="true" />
+            </filter>
+            <filter class="org.apache.log4j.varia.DenyAllFilter" />
+          </appender>
+
+          <appender name="historic" class="org.apache.log4j.RollingFileAppender">
+            <param name="File" value="${catalina.base}/logs/roam-historic.log" />
+            <param name="Append" value="false" />
+            <param name="MaxFileSize" value="50MB" />
+            <param name="Threshold" value="trace" />
+            <param name="MaxBackupIndex" value="5" />
+            <layout class="org.apache.log4j.PatternLayout">
+              <param name="ConversionPattern"
+                value="%d{ISO8601} %-4r %-5p [%t] %X{client} %X{username} %20c{1} %3x:%L - %m%n" />
+              </layout>
+
+              <filter class="edina.digimap.roam.logging.log4j.WithContextStringMatchFilter">
+                <param name="ContextPropertyToMatch" value="client" />
+                <param name="ContextPropertyValueToMatch" value="client-historic" />
+                <param name="AcceptOnMatch" value="true" />
+              </filter>
+              <filter class="org.apache.log4j.varia.DenyAllFilter" />
+            </appender>
+
+            <appender name="enviro" class="org.apache.log4j.RollingFileAppender">
+              <param name="File" value="${catalina.base}/logs/roam-enviro.log" />
+              <param name="Append" value="false" />
+              <param name="MaxFileSize" value="50MB" />
+              <param name="Threshold" value="trace" />
+              <param name="MaxBackupIndex" value="5" />
+              <layout class="org.apache.log4j.PatternLayout">
+                <param name="ConversionPattern"
+                  value="%d{ISO8601} %-4r %-5p [%t] %X{client} %X{username} %20c{1} %3x:%L - %m%n" />
+                </layout>
+
+                <filter class="edina.digimap.roam.logging.log4j.WithContextStringMatchFilter">
+                  <param name="ContextPropertyToMatch" value="client" />
+                  <param name="ContextPropertyValueToMatch" value="client-enviro" />
+                  <param name="AcceptOnMatch" value="true" />
+                </filter>
+                <filter class="org.apache.log4j.varia.DenyAllFilter" />
+              </appender>
+
+              <!-- CHANGE THE SMTP SETTINGS AND TO & FROM -->
+              <!--   <appender name="email" class="org.apache.log4j.net.SMTPAppender"> -->
+                <!--     <param name="BufferSize" value="1" /> -->
+                  <!--     <param name="SMTPHost" value="localhost" /> -->
+                    <!--     <param name="From" value="m.cuthbert@ed.ac.uk" /> -->
+                      <!--     <param name="To" value="m.cuthbert@ed.ac.uk" /> -->
+                        <!--     <param name="Subject" value="Digimap: Roam Error (${user.home}) (${user.name}) (${catalina.home})" /> -->
+                          <!--     <param name="LocationInfo" value="false" /> -->
+                            <!--     <param name="SMTPTrace" value="false" /> -->
+                              <!--     <layout class="org.apache.log4j.PatternLayout"> -->
+                                <!--       <param name="ConversionPattern" -->
+                                <!--         value="%d{ISO8601} %-4r %-5p [%t] %X{client} %X{username} %20c{1} %3x:%L - %m%n" /> -->
+                                  <!--     </layout> -->
+                                    <!--     Next line doesn't really have any affect, as this appender implementation -->
+                                    <!--       only logs ERROR and over -->
+                                    <!--     <filter class="org.apache.log4j.varia.LevelRangeFilter"> -->
+                                      <!--       <param name="LevelMin" value="error" /> -->
+                                        <!--       <param name="LevelMax" value="fatal" /> -->
+                                          <!--     </filter> -->
+                                            <!--   </appender> -->
+
+                                            <!-- Configure output from edina classes - additivity = true means log
+                                              also goes up to root -->
+                                                <logger name="edina" additivity="true">
+                                                  <level value="TRACE" />
+                                                </logger>
+
+                                                <logger name="some-other-package-you-want-monitor" additivity="true">
+                                                  <level value="TRACE" />
+                                                </logger>
+
+                                                <!-- All log traffic passes through root, send log output to email (ERRORs
+                                                  only) and console -->
+                                                    <root>
+                                                      <level value="INFO" />
+                                                      <!--     <appender-ref ref="email" /> -->
+                                                        <appender-ref ref="console" />
+                                                        <appender-ref ref="os" />
+                                                        <appender-ref ref="marine" />
+                                                        <appender-ref ref="geology" />
+                                                        <appender-ref ref="historic" />
+                                                        <appender-ref ref="enviro" />
+                                                      </root>
+
+                                                    </log4j:configuration>

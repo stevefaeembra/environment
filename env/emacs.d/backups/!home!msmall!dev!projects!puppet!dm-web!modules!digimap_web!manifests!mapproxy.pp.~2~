@@ -1,0 +1,22 @@
+# == Class: digimap_web::mapproxy
+#
+# Creates the tomcat application required.
+#
+# === Parameters
+#
+# No parameters
+#
+#
+# === Example
+#
+# This is included in the main digimap_web class as follows
+#    class { 'digimap_web::mapproxy': }
+#
+# 
+class digimap_web::tomcat_apps {
+     digimap_web::add_tomcat_application { "mapproxy":
+        tomcat_port      => "11174",
+        tomcat_control_port => '11173',
+        jvm_envs         => '-server -Xmx1024m -Xms128m -XX:MaxPermSize=128m -Dcom.sun.management.jmxremote.authenticate=false', 
+     }
+}

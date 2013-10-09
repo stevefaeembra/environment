@@ -1,0 +1,50 @@
+IssueID #8658 - Changed saved maps basemap names.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch develop
+# Changes to be committed:
+#   (use "git reset HEAD^1 <file>..." to unstage)
+#
+#	modified:   src/main/resources/map-config/geology-map.json
+#
+diff --git a/src/main/resources/map-config/geology-map.json b/src/main/resources/map-config/geology-map.json
+index 3c283a7..d45c04c 100644
+--- a/src/main/resources/map-config/geology-map.json
++++ b/src/main/resources/map-config/geology-map.json
+@@ -26,7 +26,7 @@
+     "cachedLayers": [ "G625_all" ],
+     "metadata": {
+       "productId": "Geology625k_GB",
+-      "themeDisplayName": "GB",
++      "themeDisplayName": "1:625 000 Geology",
+       "mapInfoDisplayName": "British Geological Survey 1:625 000",
+       "logName": "Geology625k",
+       "legendName": "Geology625k",
+@@ -48,7 +48,7 @@
+     "cachedLayers": [ "G625_all" ],
+     "metadata": {
+       "productId": "Geology625k",
+-      "themeDisplayName": "GB",
++      "themeDisplayName": "1:625 000 Geology",
+       "mapInfoDisplayName": "British Geological Survey 1:625 000",
+       "logName": "Geology625k",
+       "legendName": "Geology625k",
+@@ -70,7 +70,7 @@
+     "cachedLayers": [ "G250_all" ],
+     "metadata": {
+       "productId": "Geology250k",
+-      "themeDisplayName": "Miniscale - Relief (No Roads)",
++      "themeDisplayName": "1:250 000 Geology",
+       "mapInfoDisplayName": "British Geological Survey 1:250 000",
+       "logName": "Geology250k",
+       "legendName": "Geology250k",
+@@ -92,7 +92,7 @@
+     "cachedLayers": [ "G50_all" ],
+     "metadata": {
+       "productId": "Geology50k",
+-      "themeDisplayName": "Miniscale - Relief",
++      "themeDisplayName": "1:50 000 Geology",
+       "mapInfoDisplayName": "British Geological Survey 1:50 000",
+       "logName": "Geology50k",
+       "legendName": "Geology50k",

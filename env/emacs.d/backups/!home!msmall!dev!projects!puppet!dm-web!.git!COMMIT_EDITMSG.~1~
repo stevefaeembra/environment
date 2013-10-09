@@ -1,0 +1,486 @@
+Changed name of module.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD^1 <file>..." to unstage)
+#
+#	modified:   manifests/init.pp
+#	deleted:    modules/digimap_web/manifests/init.pp
+#	renamed:    modules/digimap_web/Modulefile -> modules/dm-web/Modulefile
+#	renamed:    modules/digimap_web/files/digimap-global.properties -> modules/dm-web/files/digimap-global.properties
+#	renamed:    modules/digimap_web/files/dummy-ssl.crt -> modules/dm-web/files/dummy-ssl.crt
+#	renamed:    modules/digimap_web/files/dummy-ssl.key -> modules/dm-web/files/dummy-ssl.key
+#	renamed:    modules/digimap_web/files/iptables -> modules/dm-web/files/iptables
+#	renamed:    modules/digimap_web/files/mapproxy-log4j.properties -> modules/dm-web/files/mapproxy-log4j.properties
+#	renamed:    modules/digimap_web/files/mapproxy.properties -> modules/dm-web/files/mapproxy.properties
+#	renamed:    modules/digimap_web/files/mapproxy.war -> modules/dm-web/files/mapproxy.war
+#	renamed:    modules/digimap_web/files/roam-app-log4j.xml -> modules/dm-web/files/roam-app-log4j.xml
+#	renamed:    modules/digimap_web/files/roam-app.properties -> modules/dm-web/files/roam-app.properties
+#	renamed:    modules/digimap_web/files/roam-app.war -> modules/dm-web/files/roam-app.war
+#	renamed:    modules/digimap_web/files/workers.properties -> modules/dm-web/files/workers.properties
+#	renamed:    modules/digimap_web/manifests/accounts.pp -> modules/dm-web/manifests/accounts.pp
+#	renamed:    modules/digimap_web/manifests/add_tomcat_application.pp -> modules/dm-web/manifests/add_tomcat_application.pp
+#	renamed:    modules/digimap_web/manifests/dirs.pp -> modules/dm-web/manifests/dirs.pp
+#	renamed:    modules/digimap_web/manifests/globals.pp -> modules/dm-web/manifests/globals.pp
+#	renamed:    modules/digimap_web/manifests/groups.pp -> modules/dm-web/manifests/groups.pp
+#	renamed:    modules/digimap_web/manifests/httpd.pp -> modules/dm-web/manifests/httpd.pp
+#	new file:   modules/dm-web/manifests/init.pp
+#	renamed:    modules/digimap_web/manifests/iptables.pp -> modules/dm-web/manifests/iptables.pp
+#	renamed:    modules/digimap_web/manifests/tomcat_apps.pp -> modules/dm-web/manifests/tomcat_apps.pp
+#	renamed:    modules/digimap_web/templates/application.xml.erb -> modules/dm-web/templates/application.xml.erb
+#	renamed:    modules/digimap_web/templates/vhost_custom_fragment.erb -> modules/dm-web/templates/vhost_custom_fragment.erb
+#
+diff --git a/manifests/init.pp b/manifests/init.pp
+index 52eae21..f047b3a 100644
+--- a/manifests/init.pp
++++ b/manifests/init.pp
+@@ -2,4 +2,4 @@
+ #Global Path for exec unless overridden
+ Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' , '/usr/local/bin', '/usr/local/sbin'] }
+ include common
+-include digimap_web
+\ No newline at end of file
++include dm-web
+diff --git a/modules/digimap_web/manifests/init.pp b/modules/digimap_web/manifests/init.pp
+deleted file mode 100644
+index 82da689..0000000
+--- a/modules/digimap_web/manifests/init.pp
++++ /dev/null
+@@ -1,22 +0,0 @@
+-# == Class: digimap_web
+-#
+-# The main class for the setup of the digimap suite on sunart.
+-#
+-# === Parameters
+-#
+-# No parameters
+-#
+-#
+-# === Example
+-#
+-#  include class digimap_web
+-#  
+-class digimap_web {
+-  class { 'digimap_web::httpd': }
+-  class { 'digimap_web::iptables': }
+-  class { 'digimap_web::groups': }
+-  class { 'digimap_web::accounts': }
+-  class { 'digimap_web::dirs': }
+-  class { 'digimap_web::globals': }
+-  class { 'digimap_web::tomcat_apps': }
+-}
+diff --git a/modules/digimap_web/Modulefile b/modules/dm-web/Modulefile
+similarity index 100%
+rename from modules/digimap_web/Modulefile
+rename to modules/dm-web/Modulefile
+diff --git a/modules/digimap_web/files/digimap-global.properties b/modules/dm-web/files/digimap-global.properties
+similarity index 100%
+rename from modules/digimap_web/files/digimap-global.properties
+rename to modules/dm-web/files/digimap-global.properties
+diff --git a/modules/digimap_web/files/dummy-ssl.crt b/modules/dm-web/files/dummy-ssl.crt
+similarity index 100%
+rename from modules/digimap_web/files/dummy-ssl.crt
+rename to modules/dm-web/files/dummy-ssl.crt
+diff --git a/modules/digimap_web/files/dummy-ssl.key b/modules/dm-web/files/dummy-ssl.key
+similarity index 100%
+rename from modules/digimap_web/files/dummy-ssl.key
+rename to modules/dm-web/files/dummy-ssl.key
+diff --git a/modules/digimap_web/files/iptables b/modules/dm-web/files/iptables
+similarity index 93%
+rename from modules/digimap_web/files/iptables
+rename to modules/dm-web/files/iptables
+index 8864737..f39d1d3 100644
+--- a/modules/digimap_web/files/iptables
++++ b/modules/dm-web/files/iptables
+@@ -16,7 +16,7 @@
+ -A INPUT -m state --state NEW -m tcp -p tcp --dport 8009 -j ACCEPT
+ -A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+ 
+--A INPUT -m state --state NEW -m tcp -p tcp --dport 3000 -j ACCEPT
++-A INPUT -m state --state NEW -m tcp -p tcp --dport 3080 -j ACCEPT
+ -A INPUT -m state --state NEW -m tcp -p tcp --dport 11082 -j ACCEPT
+ -A INPUT -m state --state NEW -m tcp -p tcp --dport 11174 -j ACCEPT
+ 
+diff --git a/modules/digimap_web/files/mapproxy-log4j.properties b/modules/dm-web/files/mapproxy-log4j.properties
+similarity index 100%
+rename from modules/digimap_web/files/mapproxy-log4j.properties
+rename to modules/dm-web/files/mapproxy-log4j.properties
+diff --git a/modules/digimap_web/files/mapproxy.properties b/modules/dm-web/files/mapproxy.properties
+similarity index 100%
+rename from modules/digimap_web/files/mapproxy.properties
+rename to modules/dm-web/files/mapproxy.properties
+diff --git a/modules/digimap_web/files/mapproxy.war b/modules/dm-web/files/mapproxy.war
+similarity index 100%
+rename from modules/digimap_web/files/mapproxy.war
+rename to modules/dm-web/files/mapproxy.war
+diff --git a/modules/digimap_web/files/roam-app-log4j.xml b/modules/dm-web/files/roam-app-log4j.xml
+similarity index 100%
+rename from modules/digimap_web/files/roam-app-log4j.xml
+rename to modules/dm-web/files/roam-app-log4j.xml
+diff --git a/modules/digimap_web/files/roam-app.properties b/modules/dm-web/files/roam-app.properties
+similarity index 100%
+rename from modules/digimap_web/files/roam-app.properties
+rename to modules/dm-web/files/roam-app.properties
+diff --git a/modules/digimap_web/files/roam-app.war b/modules/dm-web/files/roam-app.war
+similarity index 100%
+rename from modules/digimap_web/files/roam-app.war
+rename to modules/dm-web/files/roam-app.war
+diff --git a/modules/digimap_web/files/workers.properties b/modules/dm-web/files/workers.properties
+similarity index 100%
+rename from modules/digimap_web/files/workers.properties
+rename to modules/dm-web/files/workers.properties
+diff --git a/modules/digimap_web/manifests/accounts.pp b/modules/dm-web/manifests/accounts.pp
+similarity index 77%
+rename from modules/digimap_web/manifests/accounts.pp
+rename to modules/dm-web/manifests/accounts.pp
+index e3f3e65..0207eee 100644
+--- a/modules/digimap_web/manifests/accounts.pp
++++ b/modules/dm-web/manifests/accounts.pp
+@@ -1,4 +1,4 @@
+-# == Class: digimap_web::accounts 
++# == Class: dm-web::accounts 
+ #
+ # Sets up various system accounts
+ #
+@@ -9,10 +9,10 @@
+ #
+ # === Example
+ #
+-# This is included in the main digimap_web class as follows
+-#    class { 'digimap_web::accounts': }
++# This is included in the main dm-web class as follows
++#    class { 'dm-web::accounts': }
+ #
+-class digimap_web::accounts {
++class dm-web::accounts {
+  
+   #Required for password adding
+   package {'ruby-shadow':
+diff --git a/modules/digimap_web/manifests/add_tomcat_application.pp b/modules/dm-web/manifests/add_tomcat_application.pp
+similarity index 92%
+rename from modules/digimap_web/manifests/add_tomcat_application.pp
+rename to modules/dm-web/manifests/add_tomcat_application.pp
+index 5cb5c87..0c862c6 100644
+--- a/modules/digimap_web/manifests/add_tomcat_application.pp
++++ b/modules/dm-web/manifests/add_tomcat_application.pp
+@@ -1,4 +1,4 @@
+-# == Define: digimap_web::add_tomcat_application
++# == Define: dm-web::add_tomcat_application
+ #
+ # A parametrised function to create a new tomcat application.
+ #
+@@ -20,13 +20,13 @@
+ #   
+ # === Example
+ #
+-#     digimap_web::add_tomcat_application { 'roam-app':
++#     dm-web::add_tomcat_application { 'roam-app':
+ #        tomcat_port          => '11082',
+ #        tomcat_control_port  =>  '1081',
+ #        jvm_envs             => '-server -Xmx1024m -Xms128m -XX:MaxPermSize=128m -Dcom.sun.management.jmxremote.authenticate=false',
+ #     }
+ # 
+-define digimap_web::add_tomcat_application( $application_name = $title,
++define dm-web::add_tomcat_application( $application_name = $title,
+                                              $tomcat_port,
+                                              $tomcat_control_port,
+                                              $jvm_envs,
+@@ -65,7 +65,7 @@ define digimap_web::add_tomcat_application( $application_name = $title,
+    # File with context path setting
+    file { "$application_root/$application_name/conf/Catalina/localhost/${application_name}.xml":
+             ensure  => present,
+-            content  => template("digimap_web/application.xml.erb"),
++            content  => template("dm-web/application.xml.erb"),
+             owner   => "${application_name}",
+             group   => "${application_name}",
+             require => Tomcat7_rhel::Tomcat_application["${application_name}"],
+@@ -82,7 +82,7 @@ define digimap_web::add_tomcat_application( $application_name = $title,
+    # A file with application specific properties
+    file { "$application_root/$application_name/properties/$application_name.properties":
+             ensure  => present,
+-            source  => "puppet:///modules/digimap_web/$application_name.properties",
++            source  => "puppet:///modules/dm-web/$application_name.properties",
+             owner   => "${application_name}",
+             group   => "${application_name}",
+             require => [
+@@ -100,7 +100,7 @@ define digimap_web::add_tomcat_application( $application_name = $title,
+            
+        file { "$application_root/$application_name/properties/$application_log4j_file":
+             ensure  => present,
+-            source  => "puppet:///modules/digimap_web/$application_log4j_file",
++            source  => "puppet:///modules/dm-web/$application_log4j_file",
+             owner   => "${application_name}",
+             group   => "${application_name}",
+             require => [
+@@ -125,7 +125,7 @@ define digimap_web::add_tomcat_application( $application_name = $title,
+    # The application war file
+    file { "$application_root/$application_name/${application_name}.war":
+            ensure  => present,
+-           source  => "puppet:///modules/digimap_web/${application_name}.war",
++           source  => "puppet:///modules/dm-web/${application_name}.war",
+            owner   => "${application_name}",
+            group   => "${application_name}",
+            require => [
+diff --git a/modules/digimap_web/manifests/dirs.pp b/modules/dm-web/manifests/dirs.pp
+similarity index 66%
+rename from modules/digimap_web/manifests/dirs.pp
+rename to modules/dm-web/manifests/dirs.pp
+index bc32999..0478524 100644
+--- a/modules/digimap_web/manifests/dirs.pp
++++ b/modules/dm-web/manifests/dirs.pp
+@@ -1,4 +1,4 @@
+-# == Class: digimap_web::dirs
++# == Class: dm-web::dirs
+ #
+ # Adds directories to system folders like /etc and /var.
+ #
+@@ -9,10 +9,10 @@
+ #
+ # === Example
+ #
+-# This is included in the main digimap_web class as follows
+-#    class { 'digimap_web::dirs': }
++# This is included in the main dm-web class as follows
++#    class { 'dm-web::dirs': }
+ #
+-class digimap_web::dirs {
++class dm-web::dirs {
+     
+     file { [ '/etc/digimap', '/var/digimap' ]:
+         ensure => directory,
+diff --git a/modules/digimap_web/manifests/globals.pp b/modules/dm-web/manifests/globals.pp
+similarity index 63%
+rename from modules/digimap_web/manifests/globals.pp
+rename to modules/dm-web/manifests/globals.pp
+index ba3488d..980bfd0 100644
+--- a/modules/digimap_web/manifests/globals.pp
++++ b/modules/dm-web/manifests/globals.pp
+@@ -1,4 +1,4 @@
+-# == Class: digimap_web::globals
++# == Class: dm-web::globals
+ #
+ # Adds global configuration files to the /etc or /var directories.
+ #
+@@ -9,15 +9,15 @@
+ #
+ # === Example
+ #
+-# This is included in the main digimap_web class as follows
+-#    class { 'digimap_web::globals': }
++# This is included in the main dm-web class as follows
++#    class { 'dm-web::globals': }
+ #
+-class digimap_web::globals {
++class dm-web::globals {
+     
+     
+     file { '/etc/digimap/digimap-global.properties':
+         ensure => 'present',
+-        source => 'puppet:///modules/digimap_web/digimap-global.properties',
++        source => 'puppet:///modules/dm-web/digimap-global.properties',
+         owner  => 'root',
+         group  => 'digimap',
+         require => [
+diff --git a/modules/digimap_web/manifests/groups.pp b/modules/dm-web/manifests/groups.pp
+similarity index 53%
+rename from modules/digimap_web/manifests/groups.pp
+rename to modules/dm-web/manifests/groups.pp
+index 1fad2e5..a366bef 100644
+--- a/modules/digimap_web/manifests/groups.pp
++++ b/modules/dm-web/manifests/groups.pp
+@@ -1,4 +1,4 @@
+-# == Class: digimap_web::groups
++# == Class: dm-web::groups
+ #
+ # Adds system groups used by the applications.
+ #
+@@ -9,10 +9,10 @@
+ #
+ # === Example
+ #
+-# This is included in the main digimap_web class as follows
+-#    class { 'digimap_web::groups': }
++# This is included in the main dm-web class as follows
++#    class { 'dm-web::groups': }
+ # 
+-class digimap_web::groups {
++class dm-web::groups {
+     
+   group { 'digimap':
+     ensure => present,
+diff --git a/modules/digimap_web/manifests/httpd.pp b/modules/dm-web/manifests/httpd.pp
+similarity index 76%
+rename from modules/digimap_web/manifests/httpd.pp
+rename to modules/dm-web/manifests/httpd.pp
+index 9c0c4c7..29d47e7 100644
+--- a/modules/digimap_web/manifests/httpd.pp
++++ b/modules/dm-web/manifests/httpd.pp
+@@ -1,4 +1,4 @@
+-# == Class: digimap_web::httpd
++# == Class: dm-web::httpd
+ #
+ # The base class sets up Apache
+ # plus a virtual host
+@@ -10,10 +10,10 @@
+ #
+ # === Example
+ #
+-# This is included in the main digimap_web class as follows
+-#    class { 'digimap_web::httpd': }
++# This is included in the main dm-web class as follows
++#    class { 'dm-web::httpd': }
+ #
+-class digimap_web::httpd {
++class dm-web::httpd {
+   class { 'apache':
+     default_mods  => false,
+     default_vhost => false,
+@@ -26,13 +26,13 @@ class digimap_web::httpd {
+   
+   file { "$apache::conf_dir/ssl.crt":
+     ensure  => present,
+-    source  => 'puppet:///modules/digimap_web/dummy-ssl.crt',
++    source  => 'puppet:///modules/dm-web/dummy-ssl.crt',
+     require => Class['apache'],
+   }
+   
+   file { "$apache::conf_dir/ssl.key":
+     ensure  => present,
+-    source  => 'puppet:///modules/digimap_web/dummy-ssl.key',
++    source  => 'puppet:///modules/dm-web/dummy-ssl.key',
+     require => Class['apache'],
+   }
+   
+@@ -51,18 +51,18 @@ class digimap_web::httpd {
+       provider => 'directory',
+       path     => '/var/www/html',
+       #allow           => 'from 129.215.169 129.215.128 172.16.20.0/24',
+-      all => 'from 129.215.169.0/24',
++      all => 'from 127.0.0.1 localhost 129.215.169.0/24',
+       deny            => 'from all',
+       order           => 'deny,allow',
+     }],
+-    custom_fragment => template('digimap_web/vhost_custom_fragment.erb'),
++    custom_fragment => template('dm-web/vhost_custom_fragment.erb'),
+   }
+   
+   # The workers.properteries file (which is added to the apache conf folder).
+     # NOTE: This file will need to be updated manually whenever a new application is added.
+     file { "$apache::conf_dir/workers.properties":
+        ensure => present,
+-       source => 'puppet:///modules/digimap_web/workers.properties',
++       source => 'puppet:///modules/dm-web/workers.properties',
+        require => Class['apache'],
+        notify  => Service['httpd'],
+      }
+diff --git a/modules/dm-web/manifests/init.pp b/modules/dm-web/manifests/init.pp
+new file mode 100644
+index 0000000..1b832c6
+--- /dev/null
++++ b/modules/dm-web/manifests/init.pp
+@@ -0,0 +1,22 @@
++# == Class: dm-web
++#
++# The main class for the setup of the digimap suite on sunart.
++#
++# === Parameters
++#
++# No parameters
++#
++#
++# === Example
++#
++#  include class dm-web
++#  
++class dm-web {
++  class { 'dm-web::httpd': }
++  class { 'dm-web::iptables': }
++  class { 'dm-web::groups': }
++  class { 'dm-web::accounts': }
++  class { 'dm-web::dirs': }
++  class { 'dm-web::globals': }
++  class { 'dm-web::tomcat_apps': }
++}
+diff --git a/modules/digimap_web/manifests/iptables.pp b/modules/dm-web/manifests/iptables.pp
+similarity index 64%
+rename from modules/digimap_web/manifests/iptables.pp
+rename to modules/dm-web/manifests/iptables.pp
+index bb0f3e3..358b7e6 100644
+--- a/modules/digimap_web/manifests/iptables.pp
++++ b/modules/dm-web/manifests/iptables.pp
+@@ -1,4 +1,4 @@
+-# == Class: digimap_web::iptables
++# == Class: dm-web::iptables
+ #
+ # Copies iptables rules and restarts iptables.
+ #
+@@ -9,13 +9,13 @@
+ #
+ # === Example
+ #
+-# This is included in the main digimap_web class as follows
+-#    class { 'digimap_web::iptables': }
++# This is included in the main dm-web class as follows
++#    class { 'dm-web::iptables': }
+ #
+-class digimap_web::iptables {
++class dm-web::iptables {
+     #iptables rules
+     file { '/etc/sysconfig/iptables':
+-        source  => 'puppet:///modules/digimap_web/iptables',
++        source  => 'puppet:///modules/dm-web/iptables',
+         owner   => 'root',
+         group   => 'root',
+         mode    => 0755, 
+diff --git a/modules/digimap_web/manifests/tomcat_apps.pp b/modules/dm-web/manifests/tomcat_apps.pp
+similarity index 66%
+rename from modules/digimap_web/manifests/tomcat_apps.pp
+rename to modules/dm-web/manifests/tomcat_apps.pp
+index d31c412..45c0e9b 100644
+--- a/modules/digimap_web/manifests/tomcat_apps.pp
++++ b/modules/dm-web/manifests/tomcat_apps.pp
+@@ -1,4 +1,4 @@
+-# == Class: digimap_web::tomcat_apps
++# == Class: dm-web::tomcat_apps
+ #
+ # Creates the tomcat applications required.
+ #
+@@ -9,19 +9,19 @@
+ #
+ # === Example
+ #
+-# This is included in the main digimap_web class as follows
+-#    class { 'digimap_web::tomcat_apps': }
++# This is included in the main dm-web class as follows
++#    class { 'dm-web::tomcat_apps': }
+ # 
+-class digimap_web::tomcat_apps {
++class dm-web::tomcat_apps {
+     
+-  # Each tomcat application is created here calling the function digimap_web::add_tomcat_application
+-  digimap_web::add_tomcat_application { 'roam-app':
++  # Each tomcat application is created here calling the function dm-web::add_tomcat_application
++  dm-web::add_tomcat_application { 'roam-app':
+         tomcat_port          => '11082',
+         tomcat_control_port  => '11081',
+         jvm_envs             => '-server -Xmx1024m -Xms128m -XX:MaxPermSize=128m -Dcom.sun.management.jmxremote.authenticate=false',
+   }
+      
+-  digimap_web::add_tomcat_application { 'mapproxy':
++  dm-web::add_tomcat_application { 'mapproxy':
+         tomcat_port         => '11174',
+         tomcat_control_port => '11173',
+         jvm_envs            => '-server -Xmx1024m -Xms128m -XX:MaxPermSize=128m -Dcom.sun.management.jmxremote.authenticate=false', 
+diff --git a/modules/digimap_web/templates/application.xml.erb b/modules/dm-web/templates/application.xml.erb
+similarity index 100%
+rename from modules/digimap_web/templates/application.xml.erb
+rename to modules/dm-web/templates/application.xml.erb
+diff --git a/modules/digimap_web/templates/vhost_custom_fragment.erb b/modules/dm-web/templates/vhost_custom_fragment.erb
+similarity index 100%
+rename from modules/digimap_web/templates/vhost_custom_fragment.erb
+rename to modules/dm-web/templates/vhost_custom_fragment.erb

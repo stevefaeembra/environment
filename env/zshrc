@@ -31,7 +31,7 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git debian gnu-utils history-substring-search kate perl python)
+plugins=(git mvn debian gnu-utils history-substring-search kate perl python vagrant encode64 extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,7 +47,12 @@ bindkey '^[[B' history-beginning-search-forward
 
 # Environment Variables.
 
-export PATH=$PATH:/usr/sbin:/root/bin:/usr/lib/jvm/java-6-openjdk/bin:/usr/local/eclipse:/usr/local/apache-maven-2.2.1/bin:/usr/lib/jvm/java-6-sun/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin
+#export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+
+
+export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$HOME/local/apache-maven-3.0.5/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
+#export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:/usr/local/apache-maven-2.2.1/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
 
 export EDITOR=emacs
 export PAGER=less
@@ -60,6 +65,9 @@ export LANGUAGE=en_GB.UTF-8
 
 export TERM=xterm-256color
 
+export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude-dir=.git'
+
+#export VAGRANT_LOG=DEBUG
 
 # Aliases
 
@@ -67,12 +75,13 @@ alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim'
 alias rm='rm -v'
 
 # Windoze machine(s).
-alias lui='rdesktop -g 1024x768 -u aseales -d ed -p - lui.edina.ac.uk'
-alias assynt1='rdesktop -g 1024x768 -u aseales -d ed -p - assynt1.edina.ac.uk'
-alias assynt2='rdesktop -g 1024x768 -u aseales -d ed -p - assynt2.edina.ac.uk'
-alias assynt3='rdesktop -g 1024x768 -u aseales -d ed -p - assynt3.edina.ac.uk'
-alias culmor1='rdesktop -g 1024x768 -u aseales -d ed -p - culmor1-at.edina.ac.uk'
-alias culmor2='rdesktop -g 1024x768 -u aseales -d ed -p - culmor2-at.edina.ac.uk'
+alias lui='rdesktop -g 1024x768 -u msmall1 -d ed -p - lui.edina.ac.uk'
+alias assynt1='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt1.edina.ac.uk'
+alias assynt2='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt2.edina.ac.uk'
+alias assynt3='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt3.edina.ac.uk'
+alias culmor1='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor1-at.edina.ac.uk'
+alias culmor2='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor2-at.edina.ac.uk'
+alias iona='rdesktop -g 1024x768 -u edina -p - dlib-iona.ucs.ed.ac.uk'
 
 # Get a long listing using colours and human readable values for file size.
 alias l='ls -lh --color=auto'
@@ -92,9 +101,9 @@ alias df='df -h'
 alias vi='vim'
 alias ssh='ssh -X'
 alias dc='cd'
-alias grep='grep --exclude-dir=.svn'
+#alias grep='grep --exclude-dir=.svn'
 alias et='ssh -p1973 -X homer'
-alias ide='$HOME/local/springsource/sts-2.8.0.RELEASE/STS'
+alias ide='$HOME/local/springsource/sts-3.1.0.RELEASE/STS'
 alias ack='ack-grep --ignore-dir=target'
 alias bc='bc -l'
 
@@ -133,7 +142,8 @@ alias gmp3='wget -r -l1 -t1 -nd -N -np -A.mp3 -erobots=off'
 
 
 alias gm='git merge --ff-only'
-alias gd='git diff'
+alias gd='git diff -w --'
+alias gdc='git diff -w --cached --'
 alias gs='git stash'
 alias gsl='git stash list'
 alias gsp='git stash pop'
@@ -142,5 +152,18 @@ alias gss='git stash show -p'
 alias gf='git fetch'
 alias gfd='git fetch && git diff $(current_branch) origin/$(current_branch)'
 alias gcl='git clone'
+alias gg='git log --stat'
+alias gl='git pull --ff-only --rebase'
+alias gbs='git branch-status'
+alias gr='git rebase'
+alias gcf='git clean -fd'
+
+#alias mvn='mvn-color'
+alias mvnp='mvn clean package'
+alias mvnd='mvn release:prepare -DdryRun=true'
+alias mvnpre='mvn release:prepare'
+alias mvnper='mvn release:perform -Dgoals=deploy'
 
 
+alias genapp='~/local/apps/Sencha/Cmd/3.1.2.342/sencha -sdk ~/Downloads/ext-4.2.0.663 generate app'
+alias sencha='~/local/apps/Sencha/Cmd/3.1.2.342/sencha'

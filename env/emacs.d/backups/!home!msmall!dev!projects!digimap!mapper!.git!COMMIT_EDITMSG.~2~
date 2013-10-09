@@ -1,0 +1,23 @@
+Re-introduced the sending of a hidden form to retrieve the Saved Map.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch jidi
+# Changes to be committed:
+#   (use "git reset HEAD^1 <file>..." to unstage)
+#
+#	modified:   src/main/webapp/scripts/historic/toolbar/save-as-ext.js
+#
+diff --git a/src/main/webapp/scripts/historic/toolbar/save-as-ext.js b/src/main/webapp/scripts/historic/toolbar/save-as-ext.js
+index eba5f0e..b1400e4 100644
+--- a/src/main/webapp/scripts/historic/toolbar/save-as-ext.js
++++ b/src/main/webapp/scripts/historic/toolbar/save-as-ext.js
+@@ -113,7 +113,7 @@ define([ 'extjs', 'common/event-manager', 'common/events/known-events', 'common/
+           }]
+         };
+         
+-//        JsUtils.sendForm(formParams);
++        JsUtils.sendForm(formParams);
+         
+         Ext.getCmp('save-as-button').toggle(false);
+       },

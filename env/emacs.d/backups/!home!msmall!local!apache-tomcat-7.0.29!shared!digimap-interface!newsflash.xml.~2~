@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<in:newsFlash xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:in="http://edina.ac.uk/digimap/interface"
+              xsi:schemaLocation="http://edina.ac.uk/digimap/interface/digimapinterface.xsd">
+
+  <in:newsFlashItem>
+    <in:text>
+      <![CDATA[
+        This one shouldn't be displayed
+      ]]>
+    </in:text>
+  
+    <in:enabled>false</in:enabled>
+    <in:dateStart>2002-05-30T09:00:00</in:dateStart>
+    <in:dateEnd>2002-05-30T09:00:00</in:dateEnd>
+  </in:newsFlashItem>
+</in:newsFlash>

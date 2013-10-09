@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#startup script for ogclive applications
+case "$1" in
+'start')
+        /bin/su - ogclive -c '/homes/ogclive/startup.sh start'
+        ;;
+
+'stop')
+        /bin/su - ogclive -c '/homes/ogclive/startup.sh stop'
+        ;;
+
+*)
+        echo "usage: `basename $0` {start|stop}"
+        ;;
+esac
+
+exit $?

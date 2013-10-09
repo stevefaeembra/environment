@@ -1,0 +1,38 @@
+[user]
+	name = Mark Small
+	email = m.small@ed.ac.uk
+	ims = m.small@jabber.edina.ac.uk
+
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+	interactive = auto
+        
+[core]
+	excludesfile = /home/msmall/.gitignore
+	editor = emacs
+	autocrlf = input
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	mg = merge
+	ns = log --name-status
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%dCreset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	pop = stash pop
+	ci = commit
+	ch = !sh -c \"git log --reverse ..annotations\" | grep \"^commit\" | awk \"{print$2}\"
+	us = reset HEAD --
+	list = stash list
+	in = log --oneline master..origin/master
+	out = log --oneline origin/master..master
+	pull = pull --rebase
+	add = add -A
+[bash]
+	showDirtyState = true
+[diff]
+[init]
+	templatedir = ~/.git-templates
+[push]
+	default = current

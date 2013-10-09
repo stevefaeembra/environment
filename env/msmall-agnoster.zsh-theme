@@ -84,7 +84,8 @@ prompt_git() {
     # If dirty repo.
     if [[ -n $dirty ]]; then
       # prompt_segment yellow black
-      prompt_segment 160 242
+#      prompt_segment 124 242
+      prompt_segment 130 16
     else
       # prompt_segment green black
       prompt_segment 28 237

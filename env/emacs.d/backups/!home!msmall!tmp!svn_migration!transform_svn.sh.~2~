@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# $1 is the full svn path to the trunk, eg
+#   https://devel.edina.ac.uk/svn/geo-dev/digimap/osmapper/trunk
+# $2 is the name of the git repo relative to gitorious, eg
+#  digimap/osmapper
+
+SVN_REPO=$1
+GIT_REPO=$2
+GITORIOUS_URL="geodev@devel.edina.ac.uk"
+
+# Initial clone
+#git svn clone $SVN_REPO --no-metadata -A authors-transform.txt --stdlayout  svn_git_clone  1>/dev/null
+# msmall - used for non-standard layout e.g. no trunk/tag/branches
+git svn clone $SVN_REPO --no-metadata -A authors-transform.txt svn_git_clone  1>/dev/null
+
+# Convert svn:ignore to gitignore
+cd svn_git_clone
+git svn show-ignore --id trunk >> .gitignore
+git add .gitignore
+git commit -m 'Convert svn:ignore properties to .gitignore.'
+cd ..
+
+# Push repo to a bare one for editing
+git init --bare svn_git_bare
+cd svn_git_bare
+git symbolic-ref HEAD refs/heads/trunk
+cd ..
+
+# Push the clone into a new bare repo
+cd svn_git_clone
+git remote add bare ../svn_git_bare
+git config remote.bare.push 'refs/remotes/*:refs/heads/*'
+git push bare
+cd ..
+
+# Remove the svn clone
+rm -rf svn_git_clone
+
+# Rename trunk to master
+cd svn_git_bare
+#git branch -m trunk master
+# msmall - used for non-standard layout (see above).
+git branch -m git-svn master
+
+# Remove crappy branch@rev branches
+git for-each-ref --format='%(refname)' refs/heads | grep '@[0-9][0-9]*' | cut -d / -f 3- |
+while read ref
+do
+  git branch -D "$ref";
+done
+
+# Change svn tags to git tags
+git for-each-ref --format='%(refname)' refs/heads/tags | cut -d / -f 4 |
+while read ref
+do
+  git tag "$ref" "refs/heads/tags/$ref";
+  git branch -D "tags/$ref";
+done
+
+# Push repo to gitorious
+git remote add origin $GITORIOUS_URL:$2.git
+git push --all
+git push --tags
+
+# clean up
+cd ..
+#rm -rf svn_git_bare

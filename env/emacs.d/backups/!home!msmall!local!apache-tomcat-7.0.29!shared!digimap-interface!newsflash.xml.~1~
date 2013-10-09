@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<in:newsFlash xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:in="http://edina.ac.uk/digimap/interface"
+              xsi:schemaLocation="http://edina.ac.uk/digimap/interface/digimapinterface.xsd">
+
+    <in:newsFlashItem>
+        <in:text><![CDATA[
+          There will be a complete power shutdown of the the University of Edinburgh servers over the weekend of 14 and 15 April 2012. This will disable all Digimap logins. <a href="http://digimap.blogs.edina.ac.uk" target="_blank">More information...</a>                                        ]]></in:text>
+        <in:enabled>true</in:enabled>
+        <in:dateStart>2002-05-30T09:00:00</in:dateStart>
+        <in:dateEnd>2002-05-30T09:00:00</in:dateEnd>
+    </in:newsFlashItem>
+    
+    <in:newsFlashItem>
+        <in:text><![CDATA[
+        This is another one<br/>Two lines
+        ]]></in:text>
+        <in:enabled>false</in:enabled>
+        <in:dateStart>2002-05-30T09:00:00</in:dateStart>
+        <in:dateEnd>2002-05-30T09:00:00</in:dateEnd>
+    </in:newsFlashItem>
+    
+    <in:newsFlashItem>
+        <in:text><![CDATA[
+        This one shouldn't be displayed
+        ]]></in:text>
+        <in:enabled>false</in:enabled>
+        <in:dateStart>2002-05-30T09:00:00</in:dateStart>
+        <in:dateEnd>2002-05-30T09:00:00</in:dateEnd>
+    </in:newsFlashItem>
+</in:newsFlash>

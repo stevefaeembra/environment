@@ -1,0 +1,38 @@
+IssueID #7900 Copyright on prints (details)
+IssueID #7923 : styling 1up/2up buttons (details)
+Formatted the .css file (details)
+IssueID #7837 removed remaining references to cookie cuts (details)
+IssueID #4485 : custom messages for CRS error when uploading annotation (details)
+IssueID #7932 : activating Overview Map control only when tab expanded (details)
+IssueID #7932 : overview map correctly deactivated when its tab collapsed (details)
+Moved JSHint plugin to package phase, to make sure executing tests takes precedence. (details)
+Removed ununused underscorejs dependency (details)
+IssueID 7891 - Changed title of window and removed debug statement causing problems in IE. (details)
+ISsueID #7892 - Removed second sentence from boilerplate text. (details)
+IssueID #7930 - Added filter to feature info attributes store, if value is zero, attribute filtered out. (details)
+IssueID #7931 - Made 'Stroke Style' button wider. (details)
+IssueID #7928 - Re-factored regex to ignore missing minus symbols for degree/minute/seconds searches. (details)
+IssueID #7928 - Added listeners for return/enter key, if pressed, invokes search. (details)
+Resized text boxes for legend name so wrapping doesn't happen so quickly. (details)
+IssueID #7927 - Re-styled search window as requested. (details)
+Tidied up code. (details)
+Removed trailing spaces. (details)
+Fixed search-utils.js tests, there is still a bug here as 45N, -15E is validated, (details)
+
+
+* Made year value in copyright more easily configured.
+* Historic 1/2up button styled as requested.
+* Custom message for CRS error when uploading annotation(s) fixed.
+* Overview map only requests maps when panel expanded.
+* Open -> Annotations from file... window title updated and debug statements causing problems in IE have been removed.
+* Removed 2nd sentence from boilerplate text from Save Map window.
+* Marine GetFeatureInfo no longer shows values of zero, this hides invalid attributes for 'Depth Area' e.g. 'Spot Height'.
+  NOTE: This needs checking in other clients as zero may be valid for other attributes, if so raise an issue and we will
+        have another look.
+* Made 'Stroke Style' group button wider to accomodate icon.
+* Refactored validation regex for lat/lon D/M/S search, this allows lat/lon from latitude: 45 to 67 degrees, longitude: -15 to 15 degrees.
+  NOTE: There is a bug whereby 45N, -15E is validated, this is due to making the - symbol optional for 'W' as requested, we've not found a 
+        way to make this work with -15E validating false.
+* All 'Advanced Search' fields listen for the return/enter button, search is invoked.
+* Legend text wrapping should not wrap so quickly.
+* General bug fixes.

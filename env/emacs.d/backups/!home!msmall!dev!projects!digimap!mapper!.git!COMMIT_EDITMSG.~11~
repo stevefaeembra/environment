@@ -1,0 +1,29 @@
+IssueID #7945 - 'TASK MENU' cursor as pointer when hovering over panel headers.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch develop
+# Your branch is ahead of 'origin/develop' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD^1 <file>..." to unstage)
+#
+#	modified:   src/main/webapp/style/common/ext-overrides.css
+#
+diff --git a/src/main/webapp/style/common/ext-overrides.css b/src/main/webapp/style/common/ext-overrides.css
+index a6af0b3..1d9068f 100755
+--- a/src/main/webapp/style/common/ext-overrides.css
++++ b/src/main/webapp/style/common/ext-overrides.css
+@@ -72,4 +72,9 @@ so added  background-position, width and height as if it was part of a sprite im
+ 
+ .x-btn-over .x-btn-split-right {
+   background-image: url('../../js-lib/extjs/resources/themes/images/default/button/s-arrow-noline.gif');
+-}
+\ No newline at end of file
++}
++
++.x-accordion-item .x-accordion-hd,
++.x-accordion-item .x-accordion-hd .x-panel-header-text {
++  cursor: pointer;
++}

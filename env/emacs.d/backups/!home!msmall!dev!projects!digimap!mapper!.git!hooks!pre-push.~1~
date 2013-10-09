@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Get the current directory, where all hooks reside.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo $DIR
+
+
+# Check Build works.
+ERROR='Build failure';
+result=`mvn clean package | grep $error | awk '{ print $2 " " $3 }'`;
+
+if [ "$result" ]; then
+  exit 1;
+fi
+
+exit 0
