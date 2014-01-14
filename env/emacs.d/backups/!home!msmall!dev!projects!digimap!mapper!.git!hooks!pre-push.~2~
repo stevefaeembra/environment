@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-Get the current directory, where all hooks reside.
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo $DIR
-
-
-# Check for console statements.
-$DIR/package.sh

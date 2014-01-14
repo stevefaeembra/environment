@@ -48,11 +48,13 @@ bindkey '^[[B' history-beginning-search-forward
 # Environment Variables.
 
 #export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-amd64
-export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+#export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+export JAVA_HOME=$HOME/local/apps/jdk1.7.0_45
 
+#export MVN_HOME= $HOME/local/apache-maven-3.0.5
+export MVN_HOME=$HOME/local/apps/apache-maven-3.1.1
 
-export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$HOME/local/apache-maven-3.0.5/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
-#export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:/usr/local/apache-maven-2.2.1/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
+export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
 
 export EDITOR=emacs
 export PAGER=less
@@ -103,7 +105,7 @@ alias ssh='ssh -X'
 alias dc='cd'
 #alias grep='grep --exclude-dir=.svn'
 alias et='ssh -p1973 -X homer'
-alias ide='$HOME/local/springsource/sts-3.1.0.RELEASE/STS'
+alias ide='$HOME/local/springsource/sts-3.4.0.RELEASE/STS'
 alias ack='ack-grep --ignore-dir=target'
 alias bc='bc -l'
 
@@ -157,6 +159,7 @@ alias gl='git pull --ff-only --rebase'
 alias gbs='git branch-status'
 alias gr='git rebase'
 alias gcf='git clean -fd'
+alias grp='git remote prune origin'
 
 #alias mvn='mvn-color'
 alias mvnp='mvn clean package'
@@ -167,3 +170,30 @@ alias mvnper='mvn release:perform -Dgoals=deploy'
 
 alias genapp='~/local/apps/Sencha/Cmd/3.1.2.342/sencha -sdk ~/Downloads/ext-4.2.0.663 generate app'
 alias sencha='~/local/apps/Sencha/Cmd/3.1.2.342/sencha'
+
+# source autojump file.
+. /usr/share/autojump/autojump.sh
+
+export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
+
+
+# Hubot related variables.
+export HUBOT_REDMINE_SSL=
+export HUBOT_REDMINE_BASE_URL=http://redmine.edina.ac.uk
+export HUBOT_REDMINE_TOKEN=1005d848f5a4340eba475aeb1ce3bcd7127157a7
+export HUBOT_REDMINE_IGNORED_USERS=
+
+export HUBOT_JENKINS_URL=http://devel.edina.ac.uk:21875/jenkins/
+export HUBOT_JENKINS_AUTH=msmall:cea00c07b9c6ae2b43056866d4fe5b62
+
+# Jabber & Hubot integration.
+export HUBOT_XMPP_USERNAME=hubot@dlib-hibees.ucs.ed.ac.uk
+export HUBOT_XMPP_PASSWORD=cG3noulB
+export HUBOT_XMPP_ROOMS=digimap@conference.dlib-hibees.ucs.ed.ac.uk
+export HUBOT_XMPP_HOST=dlib-hibees.ucs.ed.ac.uk
+export HUBOT_XMPP_PORT=5222
+
+
+# Janky/GitLab integration.
+export JANKY_BASE_URL=
+

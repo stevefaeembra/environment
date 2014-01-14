@@ -1,4 +1,0 @@
-class { '::ntp':
-  servers  => [ 'ntp1.corp.com', 'ntp2.corp.com' ],
-  restrict => 'restrict 127.0.0.1',
-}

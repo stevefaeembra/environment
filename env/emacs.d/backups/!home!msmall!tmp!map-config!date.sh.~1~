@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-FILES=('os-map.json','geology-map.json','historic-map.json','enviro-map.json')
-
-for f in $FILES; do echo $f; done
-
-#for f in `ls`; do sed -n '/2012/p' < $f; done
