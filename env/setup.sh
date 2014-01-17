@@ -1,6 +1,8 @@
 #!/bin/bash
 
-rm -rf $HOME/.bashrc_mark-small \
+rm -rf $HOME/.profile\
+		   $HOME/.bashrc \
+       $HOME/.bashrc_mark-small \
        $HOME/.emacs \
        $HOME/.emacs.d \
        $HOME/.gitconfig \
@@ -12,6 +14,8 @@ rm -rf $HOME/.bashrc_mark-small \
        $HOME/.fonts \
        $HOME/.oh-my-zsh/themes/msmall-agnoster.zsh-theme
 
+ln -s $HOME/.environment/env/profile $HOME/.profile
+ln -s $HOME/.environment/env/bashrc $HOME/.bashrc
 ln -s $HOME/.environment/env/bashrc_mark-small $HOME/.bashrc_mark-small
 ln -s $HOME/.environment/env/emacs $HOME/.emacs
 ln -s $HOME/.environment/env/emacs.d $HOME/.emacs.d
