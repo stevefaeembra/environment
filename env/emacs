@@ -1,4 +1,4 @@
-;;;;
+;;;
 ;
 ;
 ;-------------------------------------------------------------------------------
@@ -8,8 +8,8 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (load-file "~/.emacs.d/conf/config.el")
 
-(add-to-list 'custom-theme-load-path "~/.emacs/themes")
-(load-theme 'misterioso t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs/themes")
+;;(load-theme 'misterioso t)
 
 (add-to-list 'load-path "~/.emacs.d")    ; This may not be appeared if you have already added.
 ;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -40,13 +40,13 @@
 (autoload 'python-mode "python-mode" "Python editing mode." t)
 
 ;; pymacs settings
-(setq pymacs-python-command py-python-command)
-(autoload 'pymacs-load "pymacs" nil t)
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
+;;(setq pymacs-python-command py-python-command)
+;;(autoload 'pymacs-load "pymacs" nil t)
+;;(autoload 'pymacs-eval "pymacs" nil t)
+;;(autoload 'pymacs-apply "pymacs")
+;;(autoload 'pymacs-call "pymacs")
 
-(require 'pycomplete)
+;;(require 'pycomplete)
 
 ;;;-----------------------------------------------------------------------------
 ;;;
@@ -92,6 +92,9 @@
 ;;
 (setq message-log-max nil)
 ;(kill-buffer "*Messages*")
+
+;; Edit version controlled files without asking.
+(setq vc-follow-symlinks t)
 
 ;; Provide a useful error trace if loading this .emacs fails.
 (setq debug-on-error t)
