@@ -57,7 +57,7 @@ if [ -n "$SSH_CLIENT" ]; then
     alias vless='vim -u $HOME/local/apps/vim/less.vim'
 
 
-    export TERM=xterm-256color
+#export TERM=xterm-256color
     export EDITOR="emacs"
   fi
 fi
