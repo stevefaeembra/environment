@@ -34,7 +34,7 @@ export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/local/edina/bin:/usr/c
 #export ORACLE_SID=mmb
 #export TNS_ADMIN=$ORACLE_HOME/network/admin
 
-#export LD_LIBRARY_PATH=/usr/local/edina/lib:$HOME/local/lib
+export LD_LIBRARY_PATH=/usr/local/edina/lib:$HOME/local/lib
 #export LD_LIBRARY_PATH=/usr/local/edina/lib:$HOME/local/lib:$HOME/local/include
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib:$ORACLE_HOME/lib
 
