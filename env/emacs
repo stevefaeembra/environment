@@ -197,6 +197,7 @@
 (setq auto-mode-alist (cons '("\\.groovy$" . java-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.json$" . espresso-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("Vagrantfile$" . ruby-mode) auto-mode-alist))
 ;;;(setq auto-mode-alist (cons '("\\.js$" . js2-mode) auto-mode-alist))
 ;(setq auto-mode-alist (cons '("\\.tt$" . tt-mode) auto-mode-alist))
 
