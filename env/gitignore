@@ -45,3 +45,5 @@ target
 *.pyc
 .pydev
 .pydevproject
+.vagrant
+generated-source
