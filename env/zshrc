@@ -41,9 +41,8 @@ unsetopt correct_all
 setopt SHARE_HISTORY
 
 # Better bindings for up/down keys to search history
-bindkey '^[[A' history-beginning-search-backward
-bindkey '^[[B' history-beginning-search-forward
-
+#bindkey '^[[A' history-beginning-search-backward
+#bindkey '^[[B' history-beginning-search-forward
 
 # Environment Variables.
 
