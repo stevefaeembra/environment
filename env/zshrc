@@ -50,8 +50,8 @@ setopt SHARE_HISTORY
 #export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
 export JAVA_HOME=$HOME/local/apps/jdk1.7.0_45
 
-#export MVN_HOME= $HOME/local/apache-maven-3.0.5
-export MVN_HOME=$HOME/local/apps/apache-maven-3.1.1
+export MVN_HOME=$HOME/local/apache-maven-3.0.5
+#export MVN_HOME=$HOME/local/apps/apache-maven-3.1.1
 
 export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
 
