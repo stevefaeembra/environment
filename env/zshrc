@@ -31,7 +31,7 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mvn debian gnu-utils history-substring-search kate perl python vagrant puppet)
+plugins=(colorize git mvn debian gnu-utils history-substring-search kate perl python vagrant puppet)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -196,3 +196,4 @@ export HUBOT_XMPP_PORT=5222
 # Janky/GitLab integration.
 export JANKY_BASE_URL=
 
+source ~/.environment/env/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
