@@ -13,6 +13,7 @@ rm -rf $HOME/.profile\
        $HOME/.inputrc \
        $HOME/.zshrc \
        $HOME/.fonts \
+       $HOME/.k5login \
        $HOME/.oh-my-zsh/themes/msmall-agnoster.zsh-theme
 
 ln -s $HOME/.environment/env/profile $HOME/.profile
@@ -28,5 +29,6 @@ ln -s $HOME/.environment/env/vimrc $HOME/.vimrc
 ln -s $HOME/.environment/env/inputrc $HOME/.inputrc
 ln -s $HOME/.environment/env/zshrc $HOME/.zshrc
 ln -s $HOME/.environment/env/fonts $HOME/.fonts
+ln -s $HOME/.environment/env/k5login $HOME/.k5login
 ln -s $HOME/.environment/env/msmall-agnoster.zsh-theme $HOME/.oh-my-zsh/themes/msmall-agnoster.zsh-theme
 
