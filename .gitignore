@@ -1,3 +1,5 @@
 env/emacs.d/backups
 env/emacs.d/auto-save-list
 *~
+bundle/
+.vim

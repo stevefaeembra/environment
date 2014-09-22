@@ -48,12 +48,16 @@ setopt SHARE_HISTORY
 
 #export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-amd64
 #export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
-export JAVA_HOME=$HOME/local/apps/jdk1.7.0_45
+#export JAVA_HOME=$HOME/local/apps/jdk1.7.0_45
+#export JAVA_HOME=$HOME/local/apps/jdk1.8.0_05
+#export JAVA_HOME=$HOME/local/jdk1.8.0_11
 
 export MVN_HOME=$HOME/local/apache-maven-3.0.5
 #export MVN_HOME=$HOME/local/apps/apache-maven-3.1.1
+#export MVN_HOME=$HOME/local/apache-maven-3.2.3
 
-export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
+#export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
+export PATH=$HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
 
 export EDITOR=emacs
 export PAGER=less
@@ -82,6 +86,8 @@ alias assynt2='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt2.edina.ac.uk'
 alias assynt3='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt3.edina.ac.uk'
 alias culmor1='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor1-at.edina.ac.uk'
 alias culmor2='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor2-at.edina.ac.uk'
+alias cadcorp1='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-1.edina.ac.uk'
+alias cadcorp2='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-2.edina.ac.uk'
 alias iona='rdesktop -g 1024x768 -u edina -p - dlib-iona.ucs.ed.ac.uk'
 
 # Get a long listing using colours and human readable values for file size.
@@ -104,8 +110,8 @@ alias ssh='ssh -X'
 alias dc='cd'
 #alias grep='grep --exclude-dir=.svn'
 alias et='ssh -p1973 -X homer'
-alias ide='$HOME/local/sts-3.6.0.RELEASE/STS'
-alias ack='ack-grep --ignore-dir=target'
+alias ide='$HOME/local/sts-bundle/sts-3.6.1.RELEASE/STS'
+alias ack='ack-grep --ignore-dir=target -i'
 alias bc='bc -l'
 
 # Query the debian package manager database on already installed packages.
@@ -197,4 +203,4 @@ export HUBOT_XMPP_PORT=5222
 # Janky/GitLab integration.
 export JANKY_BASE_URL=
 
-source ~/.environment/env/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/.environment/env/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
