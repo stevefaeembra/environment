@@ -168,6 +168,12 @@ alias gr='git rebase'
 alias gcf='git clean -fd'
 alias grp='git remote prune origin'
 alias gpo='git push -u origin'
+alias gfa='git fetch --all'
+alias gfl='git fetch && git log $(current_branch) origin/$(current_branch)'
+alias gbl='git blame'
+alias grhh='git reset --hard'
+alias gsh='git show'
+
 
 #alias mvn='mvn-color'
 alias mvnp='mvn clean package'
