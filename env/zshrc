@@ -112,7 +112,7 @@ alias ssh='ssh -X'
 alias dc='cd'
 #alias grep='grep --exclude-dir=.svn'
 alias et='ssh -p1973 -X homer'
-alias ide='$HOME/local/sts-bundle/sts-3.6.1.RELEASE/STS'
+alias ide='$HOME/local/sts-bundle/sts-3.6.4.RELEASE/STS'
 alias ack='ack-grep --ignore-dir=target -i'
 alias bc='bc -l'
 
