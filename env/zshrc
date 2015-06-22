@@ -185,6 +185,7 @@ alias mvnper='mvn release:perform -Dgoals=deploy'
 alias genapp='~/local/apps/Sencha/Cmd/3.1.2.342/sencha -sdk ~/Downloads/ext-4.2.0.663 generate app'
 alias sencha='~/local/apps/Sencha/Cmd/3.1.2.342/sencha'
 
+alias vsc='~/local/vscode/Code'
 # source autojump file.
 . /usr/share/autojump/autojump.sh
 
