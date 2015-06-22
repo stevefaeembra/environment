@@ -215,3 +215,5 @@ export HUBOT_XMPP_PORT=5222
 export JANKY_BASE_URL=
 
 #source ~/.environment/env/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
