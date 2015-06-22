@@ -56,8 +56,10 @@ export MVN_HOME=$HOME/local/apache-maven-3.0.5
 #export MVN_HOME=$HOME/local/apps/apache-maven-3.1.1
 #export MVN_HOME=$HOME/local/apache-maven-3.2.3
 
-#export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
-export PATH=$HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
+export GRADLE_HOME=$HOME/local/gradle-2.2.1
+
+#export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/local/node-v0.10.35-linux-x64/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
+export PATH=$GRADLE_HOME/bin:$HOME/bin:$HOME/local/bin:/usr/local/node-v0.10.35-linux-x64/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/usr/local/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
 
 export EDITOR=emacs
 export PAGER=less
