@@ -88,6 +88,8 @@ alias culmor1='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor1-at.edina.ac.uk
 alias culmor2='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor2-at.edina.ac.uk'
 alias cadcorp1='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-1.edina.ac.uk'
 alias cadcorp2='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-2.edina.ac.uk'
+alias cadcorp3='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-3.edina.ac.uk'
+alias cadcorpbeta='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-beta.edina.ac.uk'
 alias iona='rdesktop -g 1024x768 -u edina -p - dlib-iona.ucs.ed.ac.uk'
 
 # Get a long listing using colours and human readable values for file size.
