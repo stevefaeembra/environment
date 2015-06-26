@@ -175,6 +175,7 @@ alias gfl='git fetch && git log $(current_branch) origin/$(current_branch)'
 alias gbl='git blame'
 alias grhh='git reset --hard'
 alias gsh='git show'
+alias gsu='git submodule update --init --recursive'
 
 
 #alias mvn='mvn-color'
