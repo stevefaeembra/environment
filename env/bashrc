@@ -26,7 +26,7 @@ export JAVA_HOME=/usr/local/edina/jdk1.7.0_21
 export TERM=xterm
 export EDITOR=vim
 export PAGER=less
-export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/local/edina/bin:/usr/ccs/bin:/usr/local/bin:/usr/sfw/bin:/usr/local/GNU/bin:/usr/ccs/bin:/home/cpan/bin:/usr/bin
+export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/local/edina/bin:/usr/ccs/bin:/usr/local/bin:/usr/sfw/bin:/usr/local/GNU/bin:/usr/ccs/bin:/home/cpan/bin:/usr/bin:/bin
 
 
 #export PATH=$JAVA_HOME/bin:$HOME/local/bin:/usr/sfw/bin/:$PATH:/usr/ccs/bin
@@ -56,3 +56,8 @@ fi
 source ~/.bashrc_as
 source ~/.bashrc_mark-small
 
+# User specific aliases and functions
+if [ -n "$PS1" ]; then
+  /bin/zsh
+fi
+    
