@@ -47,17 +47,3 @@ alias egd="wget --post-file gp_test_srs.xml -O srs_test.gml --header 'Content-Ty
 
 alias vless='vim -u $HOME/local/apps/vim/less.vim'
 
-if [ -n "$DISPLAY" ]
-then
-  echo Display was $DISPLAY. Unsetting... for $SSH_CLIENT
-  unset DISPLAY
-fi
-
-source ~/.bashrc_as
-source ~/.bashrc_mark-small
-
-# User specific aliases and functions
-if [ -n "$PS1" ]; then
-  /bin/zsh
-fi
-    
