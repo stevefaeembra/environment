@@ -45,21 +45,15 @@ setopt SHARE_HISTORY
 #bindkey '^[[B' history-beginning-search-forward
 
 # Environment Variables.
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
-#export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-amd64
-#export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
-#export JAVA_HOME=$HOME/local/apps/jdk1.7.0_45
-#export JAVA_HOME=$HOME/local/apps/jdk1.8.0_05
-#export JAVA_HOME=$HOME/local/jdk1.8.0_11
+export MVN_HOME=$HOME/local/apps/apache-maven-3.3.3
 
-export MVN_HOME=$HOME/local/apache-maven-3.0.5
-#export MVN_HOME=$HOME/local/apps/apache-maven-3.1.1
-#export MVN_HOME=$HOME/local/apache-maven-3.2.3
+export GRADLE_HOME=$HOME/local/gradle-2.6
 
-export GRADLE_HOME=$HOME/local/gradle-2.2.1
+export NODEJS_HOME=/usr/local/node-v0.10.35-linux-x64
 
-#export PATH=$HOME/bin:$HOME/local/bin:$JAVA_HOME/bin:/usr/local/node-v0.10.35-linux-x64/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/usr/local/bin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
-export PATH=$GRADLE_HOME/bin:$HOME/bin:$HOME/local/bin:/usr/local/node-v0.10.35-linux-x64/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/usr/local/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
+export PATH=$GRADLE_HOME/bin:$HOME/bin:$HOME/local/bin:$NODEJS_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/usr/local/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
 
 export EDITOR=emacs
 export PAGER=less
@@ -71,10 +65,6 @@ export LANG=en_GB.UTF-8
 export LANGUAGE=en_GB.UTF-8
 
 export TERM=xterm-256color
-
-export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude-dir=.git'
-
-#export VAGRANT_LOG=DEBUG
 
 # Aliases
 
@@ -112,10 +102,9 @@ alias df='df -h'
 alias vi='vim'
 alias ssh='ssh -X'
 alias dc='cd'
-#alias grep='grep --exclude-dir=.svn'
 alias et='ssh -p1973 -X homer'
-alias ide='$HOME/local/sts-bundle/sts-3.6.4.RELEASE/STS'
-alias ack='ack-grep --ignore-dir=target -i'
+alias ide='$HOME/local/apps/sts-bundle/sts-3.7.0.RELEASE/STS'
+#alias ack='ack-grep --ignore-dir=target -i'
 alias bc='bc -l'
 
 # Query the debian package manager database on already installed packages.
@@ -185,36 +174,10 @@ alias mvnpre='mvn release:prepare'
 alias mvnper='mvn release:perform -Dgoals=deploy'
 
 
-alias genapp='~/local/apps/Sencha/Cmd/3.1.2.342/sencha -sdk ~/Downloads/ext-4.2.0.663 generate app'
-alias sencha='~/local/apps/Sencha/Cmd/3.1.2.342/sencha'
+# alias genapp='~/local/apps/Sencha/Cmd/3.1.2.342/sencha -sdk ~/Downloads/ext-4.2.0.663 generate app'
+# alias sencha='~/local/apps/Sencha/Cmd/3.1.2.342/sencha'
 
-alias vsc='~/local/vscode/Code'
-# source autojump file.
-. /usr/share/autojump/autojump.sh
+alias vsc='~/local/VSCode-linux-x64/Code'
 
 export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
 
-
-# Hubot related variables.
-export HUBOT_REDMINE_SSL=
-export HUBOT_REDMINE_BASE_URL=http://redmine.edina.ac.uk
-export HUBOT_REDMINE_TOKEN=1005d848f5a4340eba475aeb1ce3bcd7127157a7
-export HUBOT_REDMINE_IGNORED_USERS=
-
-export HUBOT_JENKINS_URL=http://devel.edina.ac.uk:21875/jenkins/
-export HUBOT_JENKINS_AUTH=msmall:cea00c07b9c6ae2b43056866d4fe5b62
-
-# Jabber & Hubot integration.
-export HUBOT_XMPP_USERNAME=hubot@dlib-hibees.ucs.ed.ac.uk
-export HUBOT_XMPP_PASSWORD=cG3noulB
-export HUBOT_XMPP_ROOMS=digimap@conference.dlib-hibees.ucs.ed.ac.uk
-export HUBOT_XMPP_HOST=dlib-hibees.ucs.ed.ac.uk
-export HUBOT_XMPP_PORT=5222
-
-
-# Janky/GitLab integration.
-export JANKY_BASE_URL=
-
-#source ~/.environment/env/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
