@@ -15,7 +15,8 @@ rm -rf $HOME/.profile\
        $HOME/.fonts \
        $HOME/.k5login \
        $HOME/.oh-my-zsh/themes/msmall-agnoster.zsh-theme \
-       $HOME/.m2
+       $HOME/.m2 \
+       $HOME/.ssh/config
 
 ln -s $HOME/.environment/env/profile $HOME/.profile
 ln -s $HOME/.environment/env/bashrc $HOME/.bashrc
@@ -33,3 +34,4 @@ ln -s $HOME/.environment/env/fonts $HOME/.fonts
 ln -s $HOME/.environment/env/k5login $HOME/.k5login
 ln -s $HOME/.environment/env/msmall-agnoster.zsh-theme $HOME/.oh-my-zsh/themes/msmall-agnoster.zsh-theme
 ln -s $HOME/.environment/env/m2 $HOME/.m2
+ln -s $HOME/.environment/env/config $HOME/.ssh/config

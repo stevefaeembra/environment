@@ -1,0 +1,66 @@
+# Digimap Stuff
+
+# Front-end apps
+Host dm-web-dev
+  Hostname dm-web-dev.edina.ac.uk
+  User     msmall1
+
+Host dm-web-beta
+  Hostname dm-web-beta.edina.ac.uk
+  User     msmall1
+
+Host dm-web-kb
+  Hostname dm-web-kb.edina.ac.uk
+  User     msmall1
+
+Host dm-web-at
+  Hostname dm-web-at.edina.ac.uk
+  User     msmall1
+
+
+# Back-end Apps
+Host dm-services-dev
+  Hostname dm-services-dev.edina.ac.uk
+  User     msmall1
+
+Host dm-services-beta
+  Hostname dm-services-beta.edina.ac.uk
+  User     msmall1
+
+Host dm-services-kb
+  Hostname dm-services-kb.edina.ac.uk
+  User     msmall1
+
+Host dm-services-at
+  Hostname dm-services-at.edina.ac.uk
+  User     msmall1
+
+
+
+Host puppetmaster
+  Hostname dlib-puppet.edina.ac.uk
+  User     msmall1
+
+Host logging
+  Hostname geologging-kb.priv.edina.ac.uk
+  User     msmall1
+
+Host geodev
+  Hostname geodev.edina.ac.uk
+  User     msmall1
+
+Host mumra
+  Hostname dlib-mumra.ucs.ed.ac.uk
+  User     msmall
+
+Host cerberus
+  Hostname devel.edina.ac.uk
+  User     cerberus
+
+Host devel
+  Hostname devel.edina.ac.uk
+  User     msmall1
+
+Host homer
+  Hostname 91.84.55.75
+  User msmall
