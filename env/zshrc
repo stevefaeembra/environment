@@ -46,14 +46,12 @@ setopt SHARE_HISTORY
 
 # Environment Variables.
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-
 export MVN_HOME=$HOME/local/apps/apache-maven-3.3.3
+export GRADLE_HOME=$HOME/local/apps/gradle-2.8
+export NODEJS_HOME=$HOME/local/apps/node-v0.10.40-linux-x64
+export JMETER_HOME=$HOME/local/apps/apache-jmeter-2.13
 
-export GRADLE_HOME=$HOME/local/gradle-2.6
-
-export NODEJS_HOME=/usr/local/node-v0.10.35-linux-x64
-
-export PATH=$GRADLE_HOME/bin:$HOME/bin:$HOME/local/bin:$NODEJS_HOME/bin:/usr/sbin:/root/bin:/usr/local/eclipse:$MVN_HOME/bin:/usr/local/bin:/root/bin:/bin:/usr/bin:/usr/games:/sbin:/opt/vagrant/bin:$HOME/local/apps/povray-3.6.1/bin
+export PATH=:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$NODEJS_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
 
 export EDITOR=emacs
 export PAGER=less
