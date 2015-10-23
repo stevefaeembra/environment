@@ -62,5 +62,6 @@ Host devel
   User     msmall1
 
 Host homer
-  Hostname 91.84.55.75
+  Port 1973
+  Hostname 95.172.225.40
   User msmall
