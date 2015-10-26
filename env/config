@@ -36,13 +36,29 @@ Host dm-services-at
   User     msmall1
 
 
+# Database
+Host dm-logging-dev
+  Hostname devel.edina.ac.uk
+  User     digimap
 
+Host dm-logging-beta
+  Hostname devel.edina.ac.uk
+  User     digimap
+
+Host dm-logging-live
+  Hostname dm-database.edina.ac.uk
+  User     digimap
+
+
+
+
+# General
 Host puppetmaster
   Hostname dlib-puppet.edina.ac.uk
   User     msmall1
 
 Host logging
-  Hostname geologging-kb.priv.edina.ac.uk
+  Hostname geo-logging-kb.priv.edina.ac.uk
   User     msmall1
 
 Host geodev
