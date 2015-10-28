@@ -171,6 +171,10 @@ alias mvnd='mvn release:prepare -DdryRun=true'
 alias mvnpre='mvn release:prepare'
 alias mvnper='mvn release:perform -Dgoals=deploy'
 
+alias vu='vagrant up'
+alias vd='vagrant destroy -f'
+alias vh='vagrant halt'
+
 alias ki='kinit msmall1@EASE.ED.AC.UK'
 
 # alias genapp='~/local/apps/Sencha/Cmd/3.1.2.342/sencha -sdk ~/Downloads/ext-4.2.0.663 generate app'
