@@ -175,6 +175,7 @@ alias vu='vagrant up'
 alias vd='vagrant destroy -f'
 alias vh='vagrant halt'
 alias vsh='vagrant ssh'
+alias vp='vagrant provision'
 
 alias ki='kinit msmall1@EASE.ED.AC.UK'
 
