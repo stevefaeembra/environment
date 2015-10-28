@@ -163,7 +163,7 @@ alias gbl='git blame'
 alias grhh='git reset --hard'
 alias gsh='git show'
 alias gsu='git submodule update --init --recursive'
-
+alias gpa='for f in `ls`; do echo $f; cd $f; git pull; cd ..; done'
 
 #alias mvn='mvn-color'
 alias mvnp='mvn clean package'
