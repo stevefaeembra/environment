@@ -101,7 +101,7 @@ alias vi='vim'
 alias ssh='ssh -X'
 alias dc='cd'
 alias et='ssh -p1973 -X homer'
-alias ide=/opt/sts-bundle/sts-3.7.1.RELEASE/STS'
+alias ide='/opt/sts-bundle/sts-3.7.1.RELEASE/STS'
 #alias ack='ack-grep --ignore-dir=target -i'
 alias bc='bc -l'
 
