@@ -46,10 +46,10 @@ setopt SHARE_HISTORY
 
 # Environment Variables.
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-export MVN_HOME=$HOME/local/apps/apache-maven-3.3.3
-export GRADLE_HOME=$HOME/local/apps/gradle-2.8
-export NODEJS_HOME=$HOME/local/apps/node-v0.10.40-linux-x64
-export JMETER_HOME=$HOME/local/apps/apache-jmeter-2.13
+export MVN_HOME=/opt/apache-maven-3.3.3
+export GRADLE_HOME=/opt/gradle-2.8
+export NODEJS_HOME=/opt/node-v0.10.40-linux-x64
+export JMETER_HOME=/opt/apache-jmeter-2.13
 
 export PATH=:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$NODEJS_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
 
@@ -101,7 +101,7 @@ alias vi='vim'
 alias ssh='ssh -X'
 alias dc='cd'
 alias et='ssh -p1973 -X homer'
-alias ide='$HOME/local/apps/sts-bundle/sts-3.7.1.RELEASE/STS'
+alias ide=/opt/sts-bundle/sts-3.7.1.RELEASE/STS'
 #alias ack='ack-grep --ignore-dir=target -i'
 alias bc='bc -l'
 
@@ -179,10 +179,7 @@ alias vp='vagrant provision'
 
 alias ki='kinit msmall1@EASE.ED.AC.UK'
 
-# alias genapp='~/local/apps/Sencha/Cmd/3.1.2.342/sencha -sdk ~/Downloads/ext-4.2.0.663 generate app'
-# alias sencha='~/local/apps/Sencha/Cmd/3.1.2.342/sencha'
-
-alias vsc='~/local/VSCode-linux-x64/Code'
+alias vsc='/opt/VSCode-linux-x64/Code'
 
 export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
 
