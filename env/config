@@ -36,6 +36,79 @@ Host dm-services-at
   User     msmall1
 
 
+
+# OrderMaster
+Host dm-ordermaster-dev
+  Hostname dm-ordermaster-dev.edina.ac.uk
+  User     msmall1
+
+Host dm-ordermaster-beta
+  Hostname dm-ordermaster-beta.edina.ac.uk
+  User     msmall1
+
+Host dm-ordermaster-kb
+  Hostname dm-ordermaster-kb.edina.ac.uk
+  User     msmall1
+
+Host dm-ordermaster-at
+  Hostname dm-ordermaster-at.edina.ac.uk
+  User     msmall1
+
+ 
+# ActiveMQ
+Host dm-mq-dev
+  Hostname dm-mq-dev.edina.ac.uk
+  User     msmall1
+
+Host dm-mq-beta
+  Hostname dm-mq-beta.edina.ac.uk
+  User     msmall1
+
+Host dm-mq-kb
+  Hostname dm-mq-kb.edina.ac.uk
+  User     msmall1
+
+Host dm-mq-at
+  Hostname dm-mq-at.edina.ac.uk
+  User     msmall1
+
+ 
+# Snowflake WFS
+Host dm-wfs-dev
+  Hostname dm-wfs-dev.edina.ac.uk
+  User     msmall1
+
+Host dm-wfs-beta
+  Hostname dm-wfs-beta.edina.ac.uk
+  User     msmall1
+
+Host dm-wfs-kb
+  Hostname dm-wfs-kb.edina.ac.uk
+  User     msmall1
+
+Host dm-wfs-at
+  Hostname dm-wfs-at.edina.ac.uk
+  User     msmall1
+
+ 
+# Conv
+Host dm-conv-dev
+  Hostname dm-conv-dev.edina.ac.uk
+  User     msmall1
+
+Host dm-conv-beta
+  Hostname dm-conv-beta.edina.ac.uk
+  User     msmall1
+
+Host dm-conv-kb
+  Hostname dm-conv-kb.edina.ac.uk
+  User     msmall1
+
+Host dm-conv-at
+  Hostname dm-conv-at.edina.ac.uk
+  User     msmall1
+
+ 
 # Database
 Host dm-logging-dev
   Hostname devel.edina.ac.uk
