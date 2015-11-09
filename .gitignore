@@ -4,3 +4,4 @@ env/emacs.d/auto-save-list
 bundle/
 .vim
 repository/
+elpa

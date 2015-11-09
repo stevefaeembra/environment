@@ -4,12 +4,24 @@
 ;-------------------------------------------------------------------------------
 
 ;;; Paths and directories
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+  (package-initialize))
+;(load-theme 'dorsey t)
+;(load-theme 'tsd-dark t)
+;(load-theme 'misterioso t)
+(load-theme 'solarized t)
+(set-terminal-parameter nil 'background-mode 'dark)
+
 (add-to-list 'load-path "~/.emacs.d/conf")
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (load-file "~/.emacs.d/conf/config.el")
 
-;;(add-to-list 'custom-theme-load-path "~/.emacs/themes")
-;;(load-theme 'misterioso t)
 
 (add-to-list 'load-path "~/.emacs.d/lisp")    ; This may not be appeared if you have already added.
 ;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -27,7 +39,7 @@
 
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(autoload 'espresso-mode "espresso")
+;(autoload 'espresso-mode "espresso")
 
 
 
@@ -195,7 +207,7 @@
 (setq auto-mode-alist (cons '("\\.c$" . c-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.java$" . java-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.groovy$" . java-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.json$" . espresso-mode) auto-mode-alist))
+;(setq auto-mode-alist (cons '("\\.json$" . espresso-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("Vagrantfile$" . ruby-mode) auto-mode-alist))
 ;;;(setq auto-mode-alist (cons '("\\.js$" . js2-mode) auto-mode-alist))
@@ -421,16 +433,18 @@
 ; End of file. ------------------------------------------------
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("c7359bd375132044fe993562dfa736ae79efc620f68bab36bd686430c980df1c" "e26780280b5248eb9b2d02a237d9941956fc94972443b0f7aeec12b5c15db9f3" "dc46381844ec8fcf9607a319aa6b442244d8c7a734a2625dac6a1f63e34bc4a6" "61d1a82d5eaafffbdd3cab1ac843da873304d1f05f66ab5a981f833a3aec3fc0" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d0ff5ea54497471567ed15eb7279c37aef3465713fb97a50d46d95fe11ab4739" default))))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(mumamo-background-chunk-major ((((class color) (min-colors 8)) nil)))
  '(mumamo-background-chunk-submode1 ((((class color) (min-colors 8)) nil)))
  '(mumamo-background-chunk-submode2 ((((class color) (min-colors 8)) nil)))
