@@ -1,3 +1,18 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# Switch to ZSH shell on login.
+# User specific aliases and functions
+if [ -n "$PS1" ]; then
+        zsh
+fi
+
+#--------------------------------------------------------------
+
 # must be 0002 so that download file generated are group writable
 umask 0002
 
