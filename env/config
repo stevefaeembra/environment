@@ -36,7 +36,6 @@ Host dm-services-at
   User     msmall1
 
 
-
 # OrderMaster
 Host dm-ordermaster-dev
   Hostname dm-ordermaster-dev.edina.ac.uk
@@ -109,6 +108,42 @@ Host dm-conv-at
   User     msmall1
 
  
+# Tilecache
+Host dm-cache-dev
+  Hostname dm-maps-kb.edina.ac.uk
+  User     tilebeta
+
+Host dm-cache-beta
+  Hostname dm-maps-kb.edina.ac.uk
+  User     tilebeta
+
+Host dm-cache-kb
+  Hostname dm-maps-kb.edina.ac.uk
+  User     tilelive
+
+Host dm-cache-at
+  Hostname dm-maps-at.edina.ac.uk
+  User     tilelive
+
+ 
+# MapServer
+Host dm-maps-dev
+  Hostname dm-maps-kb.edina.ac.uk
+  User     ogcbeta
+
+Host dm-maps-beta
+  Hostname dm-maps-kb.edina.ac.uk
+  User     ogcbeta
+
+Host dm-maps-kb
+  Hostname dm-maps-kb.edina.ac.uk
+  User     ogclive
+
+Host dm-maps-at
+  Hostname dm-maps-at.edina.ac.uk
+  User     ogclive
+
+
 # Database
 Host dm-logging-dev
   Hostname devel.edina.ac.uk
@@ -121,8 +156,6 @@ Host dm-logging-beta
 Host dm-logging-live
   Hostname dm-database.edina.ac.uk
   User     digimap
-
-
 
 
 # General
