@@ -183,6 +183,11 @@ Host devel
   Hostname devel.edina.ac.uk
   User     msmall1
 
+Host hibees
+  Port 1973
+  Hostname 129.215.169.182
+  User msmall
+
 Host homer
   Port 1973
   Hostname 95.172.225.40
