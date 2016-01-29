@@ -62,7 +62,7 @@ export LS_COLORS='rs=0:di=34:ln=36:mh=00:pi=33:so=35:do=35:bd=33:cd=33:or=31:su=
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export LANGUAGE=en_GB.UTF-8
-
+export SWT_GTK3=0
 export TERM=xterm-256color
 
 # Aliases
