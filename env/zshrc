@@ -48,7 +48,8 @@ setopt SHARE_HISTORY
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export MVN_HOME=/opt/apache-maven-3.3.3
 export GRADLE_HOME=/opt/gradle-2.8
-export NODEJS_HOME=/opt/node-v0.10.40-linux-x64
+export NODEJS_HOME=/opt/node-v5.0.0-linux-x64
+#export NODEJS_HOME=/opt/node-v0.10.40-linux-x64
 export JMETER_HOME=/opt/apache-jmeter-2.13
 
 export PATH=:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$NODEJS_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
