@@ -171,6 +171,10 @@ Host geodev
   Hostname geodev.edina.ac.uk
   User     msmall1
 
+Host gitlab
+  Hostname gitlab.edina.ac.uk
+  User     msmall1
+
 Host mumra
   Hostname dlib-mumra.ucs.ed.ac.uk
   User     msmall
