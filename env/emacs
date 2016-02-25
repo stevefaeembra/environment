@@ -42,6 +42,11 @@
 ;(autoload 'espresso-mode "espresso")
 
 
+;; Docker mode setting.
+(add-to-list 'load-path "~/.emacs.d/elisp")
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
 
 ;; python-mode settings
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
