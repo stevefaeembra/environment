@@ -176,6 +176,7 @@ alias vd='vagrant destroy -f'
 alias vh='vagrant halt'
 alias vsh='vagrant ssh'
 alias vp='vagrant provision'
+alias vps='ps -ef | grep -V grep | grep -i vboxheadless'
 
 alias ki='kinit msmall1@EASE.ED.AC.UK'
 
@@ -189,3 +190,5 @@ alias de='docker exec -it'
 
 export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
 
+# Prevent deprecation warning message.
+unset GREP_OPTIONS
