@@ -196,3 +196,8 @@ Host homer
   Port 1973
   Hostname 95.172.225.40
   User msmall
+
+Host ukmedev
+  Hostname ukme-dev.edina.ac.uk
+  User     msmall1
+
