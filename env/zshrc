@@ -31,7 +31,7 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mvn debian gnu-utils history-substring-search kate perl python vagrant puppet colored-man tmux)
+plugins=(git mvn debian gnu-utils history-substring-search kate perl python vagrant puppet colored-man tmux docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -180,6 +180,12 @@ alias vp='vagrant provision'
 alias ki='kinit msmall1@EASE.ED.AC.UK'
 
 alias vsc='/opt/VSCode-linux-x64/Code'
+
+# Docker Aliases
+alias dps='docker ps -a'
+alias dk='docker kill'
+alias drm='docker rm -v $(docker ps -a -q -f status=exited) && docker rmi $(docker images -f "dangling=true" -q)'
+alias de='docker exec -it'
 
 export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
 
