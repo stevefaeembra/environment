@@ -51,8 +51,9 @@ export GRADLE_HOME=/opt/gradle-2.8
 export NODEJS_HOME=/opt/node-v5.0.0-linux-x64
 #export NODEJS_HOME=/opt/node-v0.10.40-linux-x64
 export JMETER_HOME=/opt/apache-jmeter-2.13
+export NENV_HOME=~/.nenv
 
-export PATH=:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$NODEJS_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
+export PATH=$NENV_HOME/bin:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$NODEJS_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
 
 export EDITOR=emacs
 export PAGER=less
@@ -192,3 +193,6 @@ export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
 
 # Prevent deprecation warning message.
 unset GREP_OPTIONS
+
+eval "$(nenv init -)"
+
