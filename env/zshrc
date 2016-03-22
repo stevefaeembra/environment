@@ -101,7 +101,7 @@ alias vi='vim'
 alias ssh='ssh -X'
 alias dc='cd'
 alias et='ssh -p1973 -X homer'
-alias ide='/opt/sts-bundle/sts-3.7.1.RELEASE/STS'
+alias ide='/opt/sts-bundle/sts-3.7.3.RELEASE/STS'
 #alias ack='ack-grep --ignore-dir=target -i'
 alias bc='bc -l'
 
@@ -179,7 +179,7 @@ alias vps='ps -ef | grep -V grep | grep -i vboxheadless'
 
 alias ki='kinit msmall1@EASE.ED.AC.UK'
 
-alias vsc='/opt/VSCode-linux-x64/Code'
+alias vsc='/opt/VSCode-linux-x64/code'
 
 # Docker Aliases
 alias dps='docker ps -a'
