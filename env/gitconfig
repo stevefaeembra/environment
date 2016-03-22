@@ -12,6 +12,7 @@
 [core]
 	excludesfile = /home/msmall/.gitignore
 	autocrlf = input
+	editor = emacs
 [alias]
 	st = status
 	co = checkout
