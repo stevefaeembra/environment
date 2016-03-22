@@ -170,6 +170,10 @@ alias gpn='git push --no-verify'
 alias mpre='mvn release:prepare'
 alias mper='mvn release:perform -Dgoals=deploy'
 alias mpreskip='mvn release:prepare -Darguments="-DskipITs"'
+alias mp='mvn package'
+alias mpt='mvn package -Dmaven-test.skip=true'
+
+
 alias vu='vagrant up'
 alias vd='vagrant destroy -f'
 alias vh='vagrant halt'
