@@ -201,3 +201,7 @@ Host ukmedev
   Hostname ukme-dev.edina.ac.uk
   User     msmall1
 
+Host ukmebeta
+  Hostname ukme-beta.edina.ac.uk
+  User     msmall1
+
