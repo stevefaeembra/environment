@@ -14,8 +14,8 @@
   (package-initialize))
 ;(load-theme 'dorsey t)
 ;(load-theme 'tsd-dark t)
-;(load-theme 'misterioso t)
-(load-theme 'solarized t)
+(load-theme 'misterioso t)
+;(load-theme 'solarized t)
 (set-terminal-parameter nil 'background-mode 'dark)
 
 (add-to-list 'load-path "~/.emacs.d/conf")
