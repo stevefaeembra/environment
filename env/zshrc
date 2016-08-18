@@ -165,11 +165,16 @@ alias gsh='git show'
 alias gsu='git submodule update --init --recursive'
 alias gpa='for f in `ls`; do echo $f; cd $f; git pull; cd ..; done'
 alias gpn='git push --no-verify'
+alias grev='git revert'
 
 #alias mvn='mvn-color'
 alias mpre='mvn release:prepare'
 alias mper='mvn release:perform -Dgoals=deploy'
 alias mpreskip='mvn release:prepare -Darguments="-DskipITs"'
+alias mp='mvn package'
+alias mpt='mvn package -Dmaven-test.skip=true'
+
+
 alias vu='vagrant up'
 alias vd='vagrant destroy -f'
 alias vh='vagrant halt'
@@ -183,8 +188,11 @@ alias ki='kinit msmall1@EASE.ED.AC.UK'
 # Docker Aliases
 alias dps='docker ps -a'
 alias dk='docker kill'
-alias drm='docker rm -v $(docker ps -a -q -f status=exited) && docker rmi $(docker images -f "dangling=true" -q)'
+alias drm='docker rm -v'
+alias dti='docker rm -v $(docker ps -a -q -f status=exited) && docker rmi $(docker images -f "dangling=true" -q)'
 alias de='docker exec -it'
+
+alias gup='for f in `ls`; do cd $f; git pull; cd ..; done'
 
 export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
 
