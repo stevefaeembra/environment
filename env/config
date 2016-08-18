@@ -194,7 +194,7 @@ Host hibees
 
 Host homer
   Port 1973
-  Hostname 95.172.225.40
+  Hostname 217.155.193.113
   User msmall
 
 Host ukmedev
