@@ -1,4 +1,4 @@
-source ~/.vim/vimrc
+execute pathogen#infect()
 
 set ts=2
 set cindent shiftwidth=2
@@ -16,6 +16,9 @@ map <F4> :set number!<CR>
 
 set t_Co=256
 syntax enable
+syntax on
+filetype plugin indent on
+
 set background=dark
 colorscheme solarized
 

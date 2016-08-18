@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Setup static files.
+# Delete existing files
 rm -rf $HOME/.profile\
        $HOME/.bashrc \
        $HOME/.bashrc_mark-small \
@@ -20,6 +22,7 @@ rm -rf $HOME/.profile\
        $HOME/.ackrc \
        $HOME/.ssh/config
 
+# Recreate from configured.
 ln -s $HOME/.environment/env/profile $HOME/.profile
 ln -s $HOME/.environment/env/bashrc $HOME/.bashrc
 ln -s $HOME/.environment/env/bashrc_mark-small $HOME/.bashrc_mark-small
@@ -39,3 +42,11 @@ ln -s $HOME/.environment/env/m2 $HOME/.m2
 ln -s $HOME/.environment/env/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/.environment/env/ackrc $HOME/.ackrc
 ln -s $HOME/.environment/env/config $HOME/.ssh/config
+
+# Setup pathogen for vim.
+mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+## Add vim plugins
+cd ~/.vim/bundle
+git clone git://github.com/altercation/vim-colors-solarized.git
+git clone git://github.com/tpope/vim-sensible.git
