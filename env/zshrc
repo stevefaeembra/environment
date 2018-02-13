@@ -50,8 +50,9 @@ export MVN_HOME=/opt/apache-maven-3.3.3
 export GRADLE_HOME=/opt/gradle-2.8
 export JMETER_HOME=/opt/apache-jmeter-2.13
 export NENV_HOME=$HOME/.nenv
+export CHROME_BIN=/usr/bin/chromium
 
-export PATH=$NENV_HOME/bin:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
+export PATH=/opt/ripgrep-0.4.0-x86_64-unknown-linux-musl:$NENV_HOME/bin:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
 
 export EDITOR=emacs
 export PAGER=less
@@ -66,7 +67,7 @@ export TERM=xterm-256color
 
 # Aliases
 
-alias vless='vim -u /usr/share/vim/vim74/macros/less.vim'
+alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim'
 alias rm='rm -v'
 
 # Windoze machine(s).
@@ -139,6 +140,7 @@ alias gmp3='wget -r -l1 -t1 -nd -N -np -A.mp3 -erobots=off'
 
 
 
+alias gt='git tag -n'
 alias gm='git merge --ff-only'
 alias gd='git diff -w --'
 alias gdc='git diff -w --cached --'
@@ -162,6 +164,7 @@ alias gfl='git fetch && git log $(current_branch) origin/$(current_branch)'
 alias gbl='git blame'
 alias grhh='git reset --hard'
 alias gsh='git show'
+alias gsk='git stash --keep-index'
 alias gsu='git submodule update --init --recursive'
 alias gpa='for f in `ls`; do echo $f; cd $f; git pull; cd ..; done'
 alias gpn='git push --no-verify'
@@ -192,6 +195,7 @@ alias drm='docker rm -v'
 alias dti='docker rm -v $(docker ps -a -q -f status=exited) && docker rmi $(docker images -f "dangling=true" -q)'
 alias de='docker exec -it'
 
+alias python="python3"
 alias gup='for f in `ls`; do cd $f; git pull; cd ..; done'
 
 export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
@@ -202,3 +206,4 @@ unset GREP_OPTIONS
 # NENV.
 eval "$(nenv init -)"
 
+export GITHUB_TOKEN=a3ad503a17ac5fb9262dec8a70c725a0609da0f7

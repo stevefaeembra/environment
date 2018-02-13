@@ -189,7 +189,7 @@ Host devel
 
 Host hibees
   Port 1973
-  Hostname 129.215.169.182
+  Hostname 129.215.242.30
   User msmall
 
 Host homer

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mv $HOME/.bashrc $HOME/.bashrc.orig
+
+
 # Setup static files.
 # Delete existing files
 rm -rf $HOME/.profile\
