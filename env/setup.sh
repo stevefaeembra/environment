@@ -53,3 +53,6 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vi
 cd ~/.vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
 git clone git://github.com/tpope/vim-sensible.git
+
+# Add TMUX Plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
