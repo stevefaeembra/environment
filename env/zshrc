@@ -68,6 +68,7 @@ export TERM=xterm-256color
 
 # Aliases
 
+alias top='htop'
 alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim'
 alias rm='rm -v'
 
