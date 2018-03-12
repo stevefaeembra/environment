@@ -1,7 +1,6 @@
 [user]
 	name = Mark Small
-	email = m.small@ed.ac.uk
-	ims = m.small@jabber.edina.ac.uk
+	email = mark.small@astrosat.space
 
 [color]
         diff = auto
