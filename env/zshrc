@@ -199,6 +199,9 @@ alias dk='docker kill'
 alias drm='docker rm -v'
 alias dti='docker rm -v $(docker ps -a -q -f status=exited) && docker rmi $(docker images -f "dangling=true" -q)'
 alias de='docker exec -it'
+alias dla='docker container ls -a'
+alias dils='docker image ls'
+#alias dla='docker container run'
 
 alias python="python3"
 alias gup='for f in `ls`; do cd $f; git pull; cd ..; done'
