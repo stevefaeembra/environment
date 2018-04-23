@@ -9,8 +9,7 @@
   (require 'package)
   (add-to-list
    'package-archives
-   '("melpa" . "http://melpa.org/packages/")
-   t)
+   '("melpa" . "https://melpa.org/packages/"))
   (package-initialize))
 ;(load-theme 'dorsey t)
 ;(load-theme 'tsd-dark t)
@@ -36,6 +35,9 @@
 ;;(load "~/.emacs.d/elisp/git.el")
 ;;(load "~/.emacs.d/elisp/git-blame.el")
 ;;(require 'git)
+(require 'nginx-mode)
+(autoload 'nginx-mode "nginx-mode" nil t)
+(add-to-list 'auto-mode-alist '("/etc/nginx/*" . nginx-mode))
 
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
