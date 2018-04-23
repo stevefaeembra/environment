@@ -205,3 +205,7 @@ Host ukmebeta
   Hostname ukme-beta.edina.ac.uk
   User     msmall1
 
+# Astrosat
+Host jenkins
+  Hostname ci-server-01.common.ew1.aws.darkastrosat.com
+  User     mark.small
