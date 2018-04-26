@@ -219,6 +219,9 @@ function dex() {
   docker save -o "$1".tar "$1"
 }
 
+# Minikube Aliases
+alias mkd='minikube dashboard'
+
 alias python="python3"
 alias gup='for f in `ls`; do cd $f; git pull; cd ..; done'
 
