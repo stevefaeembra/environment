@@ -32,7 +32,6 @@
 	showDirtyState = true
 [diff]
 [init]
-	templatedir = ~/.git-templates/
 [push]
 	default = current
 [merge]
