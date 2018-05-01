@@ -49,13 +49,11 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export MVN_HOME=/opt/apache-maven-3.3.3
 export GRADLE_HOME=/opt/gradle-2.8
 export JMETER_HOME=/opt/apache-jmeter-2.13
-#export NENV_HOME=$HOME/.nenv
 export NDENV=$HOME/.ndenv
 export CHROME_BIN=/usr/bin/chromium
 export RIPGREP_HOME=/opt/ripgrep-0.8.0-x86_64-unknown-linux-musl
 
-export PATH=$RIPGREP_HOME:$NDENV/bin:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
-#export PATH=$RIPGREP_HOME:$NENV_HOME/bin:$NDENV/bin:$MVN_HOME/bin:$GRADLE_HOME/bin:$HOME/bin:$JMETER_HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
+export PATH=$RIPGREP_HOME:$NDENV/bin:$HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
 
 export EDITOR=emacs
 export PAGER=less
@@ -230,8 +228,6 @@ export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
 # Prevent deprecation warning message.
 unset GREP_OPTIONS
 
-# NENV.
-#eval "$(nenv init -)"
 # NDENV
 eval "$(ndenv init -)"
 
