@@ -213,6 +213,7 @@ alias dup='docker-compose up --build'
 alias dh='docker stop'
 # Run command in already running container e.g. dr <image name< <command>
 alias dr='docker run -it'
+alias dre='docker run -it --entrypoint /bin/bash'
 
 function dsh() {
   docker exec -it "$1" /bin/bash
