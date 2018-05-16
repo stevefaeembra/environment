@@ -1,3 +1,10 @@
+# Issue
+
+If you know this is a **Feature** or a **Bug**, please select the appropriate link below, otherwise, remove everything before`## Expectations` and proceed.
+
+* [bug](https://github.com/marksmall/environment/issues/new?template=bug.md)
+* [Feature](https://github.com/marksmall/environment/issues/new?template=feature.md)
+
 ## Expectations
 
 <!--
