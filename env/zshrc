@@ -192,6 +192,7 @@ alias vps='ps -ef | grep -V grep | grep -i vboxheadless'
 
 alias ki='kinit msmall1@EASE.ED.AC.UK'
 
+alias diff='colordiff -u'
 
 # Docker Aliases
 alias dps='docker ps -a'
