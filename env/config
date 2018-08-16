@@ -207,5 +207,5 @@ Host ukmebeta
 
 # Astrosat
 Host jenkins
-  Hostname ci-server-01.common.ew1.aws.darkastrosat.com
+  Hostname ci-server-01.common.ew1.aws.internal.astrosat.space
   User     mark.small
