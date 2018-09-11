@@ -239,4 +239,7 @@ unset GREP_OPTIONS
 # NDENV
 eval "$(ndenv init -)"
 
+# Correct previous console commands.
+eval $(thefuck --alias)
+
 export GITHUB_TOKEN=a3ad503a17ac5fb9262dec8a70c725a0609da0f7
