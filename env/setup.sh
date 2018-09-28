@@ -57,3 +57,8 @@ git clone git://github.com/tpope/vim-sensible.git
 
 # Add TMUX Plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Add Node Version manager
+git clone https://github.com/riywo/ndenv ~/.ndenv
+# Add node-build plugin for ndenv
+git clone https://github.com/riywo/node-build.git ~/.ndenv/plugins/node-build
