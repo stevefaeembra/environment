@@ -67,7 +67,7 @@ export SWT_GTK3=0
 export TERM=xterm-256color
 
 # Aliases
-alias display='xrandr --output DVI-I-1-1 --auto --left-of DP-1'
+#alias display='xrandr --output DVI-I-1-1 --auto --left-of DP-1'
 
 alias top='htop'
 alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim'
@@ -242,4 +242,9 @@ eval "$(ndenv init -)"
 # Correct previous console commands.
 eval $(thefuck --alias)
 
-export GITHUB_TOKEN=a3ad503a17ac5fb9262dec8a70c725a0609da0f7
+#export GITHUB_TOKEN=a3ad503a17ac5fb9262dec8a70c725a0609da0f7
+export GITHUB_TOKEN=22bdd50efaf413da74046db00b5748fc8e515563
+
+export GREN_GITHUB_TOKEN=6db545301e9b0ed0de3d6077c1fe39472a08e381
+#export GREN_GITHUB_TOKEN=957ed73f69b5a7e57fa10af2006697ba708566d9
+export HUBOT_JENKINS_AUTH_TOKENS='{"mark.small":"dfc2cf3de31e57f475ac9fa1ed505d9d"}'
