@@ -221,3 +221,15 @@ Host rapid-staging
 Host rapid-production
   Hostname stormer-01.production.rapid.ase1.aws.internal.rapid-vn.com
   User     mark.small
+
+Host stormer-testing
+  Hostname stormer-01.testing.rapid.ew1.aws.internal.astrosat.space
+  User     mark.small
+
+Host stormer-staging
+  Hostname stormer-01.staging.rapid.ase1.aws.internal.rapid-vn.com
+  User     mark.small
+
+Host stormer-production
+  Hostname stormer-01.production.rapid.ase1.aws.internal.rapid-vn.com
+  User     mark.small
