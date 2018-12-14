@@ -36,3 +36,5 @@
 	default = current
 [merge]
 	tool = meld
+[commit]
+  template = ~/.gitmessage

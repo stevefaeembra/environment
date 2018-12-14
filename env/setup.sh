@@ -12,6 +12,7 @@ rm -rf $HOME/.profile\
        $HOME/.emacs \
        $HOME/.emacs.d \
        $HOME/.gitconfig \
+       $HOME/.gitmessage \
        $HOME/.gitignore \
        $HOME/.vimrc \
        $HOME/.inputrc \
@@ -32,6 +33,7 @@ ln -s $HOME/.environment/env/bashrc_as $HOME/.bashrc_as
 ln -s $HOME/.environment/env/emacs $HOME/.emacs
 ln -s $HOME/.environment/env/emacs.d $HOME/.emacs.d
 ln -s $HOME/.environment/env/gitconfig $HOME/.gitconfig
+ln -s $HOME/.environment/env/gitmessage $HOME/.gitmessage
 ln -s $HOME/.environment/env/gitignore $HOME/.gitignore
 ln -s $HOME/.environment/env/vimrc $HOME/.vimrc
 ln -s $HOME/.environment/env/inputrc $HOME/.inputrc
