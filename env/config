@@ -211,25 +211,46 @@ Host jenkins
   User     mark.small
 
 Host rapid-testing
-  Hostname stormer-01.testing.rapid.ew1.aws.internal.astrosat.space
-  User     mark.small
+  Hostname 172.16.1.108
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/common-default.pem
 
 Host rapid-staging
-  Hostname stormer-01.staging.rapid.ase1.aws.internal.rapid-vn.com
-  User     mark.small
+  Hostname 172.16.41.150
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/rapid-staging.pem
 
 Host rapid-production
-  Hostname stormer-01.production.rapid.ase1.aws.internal.rapid-vn.com
-  User     mark.small
+  Hostname 172.16.41.150
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/rapid-production.pem
 
-Host stormer-testing
-  Hostname stormer-01.testing.rapid.ew1.aws.internal.astrosat.space
-  User     mark.small
+Host thermcert-testing
+  Hostname 172.16.1.108
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/common-default.pem
 
-Host stormer-staging
-  Hostname stormer-01.staging.rapid.ase1.aws.internal.rapid-vn.com
-  User     mark.small
+Host thermcert-staging
+  Hostname 172.16.56.16
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/thermcert-staging.pem
 
-Host stormer-production
-  Hostname stormer-01.production.rapid.ase1.aws.internal.rapid-vn.com
-  User     mark.small
+Host thermcert-production
+  Hostname 172.16.56.16
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/thermcert-production.pem
+
+Host fmap-testing
+  Hostname 172.16.1.108
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/common-default.pem
+
+Host fmap-staging
+  Hostname 172.16.25.27
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/fmap-staging.pem
+
+Host fmap-production
+  Hostname 172.16.25.27
+  User     ubuntu
+  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/fmap-production.pem
