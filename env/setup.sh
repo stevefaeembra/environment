@@ -2,6 +2,8 @@
 
 mv $HOME/.bashrc $HOME/.bashrc.orig
 
+# Setup oh-my-zsh
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # Setup static files.
 # Delete existing files
@@ -45,9 +47,6 @@ ln -s $HOME/.environment/env/m2 $HOME/.m2
 ln -s $HOME/.environment/env/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/.environment/env/ackrc $HOME/.ackrc
 ln -s $HOME/.environment/env/config $HOME/.ssh/config
-
-# Setup oh-my-zsh
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # Setup pathogen for vim.
 mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
