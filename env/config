@@ -210,6 +210,14 @@ Host jenkins
   Hostname ci-server-01.common.ew1.aws.internal.astrosat.space
   User     mark.small
 
+Host ansible
+  Hostname ansible-awx-01.common.ew1.aws.internal.astrosat.space
+  User     mark.small
+
+Host metrics
+  Hostname metrics-01.common.ew1.aws.internal.astrosat.space
+  User     mark.small
+
 Host rapid-testing
   Hostname 172.16.1.108
   User     ubuntu
