@@ -31,7 +31,7 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(aws colorize colored-man chucknorris debian django docker docker-compose extract git git-extras gnu-utils history-substring-search kate kubectl mvn node npm perl postgres puppet python taskwarrior tmux trash vagrant yarn)
+plugins=(aws colorize colored-man-pages chucknorris debian django docker docker-compose extract git git-extras gnu-utils history-substring-search kate kubectl mvn node npm perl postgres python taskwarrior tmux vault vagrant yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -242,9 +242,7 @@ eval "$(ndenv init -)"
 # Correct previous console commands.
 eval $(thefuck --alias)
 
-#export GITHUB_TOKEN=a3ad503a17ac5fb9262dec8a70c725a0609da0f7
-export GITHUB_TOKEN=22bdd50efaf413da74046db00b5748fc8e515563
+# Stormer ReleaseToken
+export GITHUB_TOKEN=0385a88b513ebfb5e1ddeb17f3d654f0d2688ce0
 
-export GREN_GITHUB_TOKEN=6db545301e9b0ed0de3d6077c1fe39472a08e381
-#export GREN_GITHUB_TOKEN=957ed73f69b5a7e57fa10af2006697ba708566d9
 export HUBOT_JENKINS_AUTH_TOKENS='{"mark.small":"dfc2cf3de31e57f475ac9fa1ed505d9d"}'
