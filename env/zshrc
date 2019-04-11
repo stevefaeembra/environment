@@ -134,6 +134,7 @@ alias upg='apt-get upgrade'
 alias dist='apt-get dist-upgrade'
 alias hold=apt-mark hold'
 alias unhold=apt-mark unhold'
+alias afl='apt-file list'
 
 # Gets file(s) of type ?? from http://.... plus from sub-dirs.
 # USAGE: get-all .xml http://foo.bar.com/dir/
