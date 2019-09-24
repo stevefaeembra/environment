@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install -y zsh emacs-nox tmux firewalld apt-transport-https ca-certificates curl gnupg2 software-properties-common powerline vim ripgrep
+apt install -y zsh emacs-nox tmux firewalld apt-transport-https ca-certificates curl gnupg2 software-properties-common powerline vim ripgrep aptitude libreoffice meld inkscape okular kontact imagemagick firefox choqok
 
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
@@ -23,5 +23,5 @@ wget -q https://dl-ssl.google.com/linux/linux_signing_key.pub -O- | apt-key add 
 add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
 
 apt upgrade
-apt install -y docker-ce docker-ce-cli containerd.io libreoffice meld google-chrome-stable code inkscape okular kontact imagemagick firefox choqok slack-desktop spotify-client
+apt install -y docker-ce docker-ce-cli containerd.io docker-compose google-chrome-stable code slack-desktop spotify-client
 
