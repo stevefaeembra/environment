@@ -83,7 +83,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Add Node Version manager
 git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 # Add node-build plugin for ndenv
-mkdir -p "$(nodenv root)"/plugins
-git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
+mkdir -p ~/.nodenv/plugins
+git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 
 chsh `whoami` -s /bin/zsh

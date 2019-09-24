@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install -y zsh emacs-nox tmux firewalld apt-transport-https ca-certificates curl gnupg2 software-properties-common powerline vim ripgrep aptitude libreoffice meld inkscape okular kontact imagemagick firefox choqok
+apt install -y zsh emacs-nox tmux firewalld apt-transport-https ca-certificates curl gnupg2 software-properties-common powerline vim ripgrep aptitude libreoffice meld inkscape okular kontact imagemagick firefox choqok sddm-theme-breeze sddm-theme-debian-breeze
 
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
