@@ -1,6 +1,27 @@
 #!/bin/bash
 
-mv $HOME/.bashrc $HOME/.bashrc.orig
+#mv $HOME/.bashrc $HOME/.bashrc.orig
+
+# Generate SSH Key
+cat /dev/zero | ssh-keygen -q -N ""
+
+# Generate GPG keyring
+cat >foo <<EOF
+     %echo Generating a basic OpenPGP key
+     Key-Type: default
+     Key-Length: 2048
+     Subkey-Type: default
+     Name-Real: Mark Small
+     Name-Comment: with stupid passphrase
+     Name-Email: marksmall@gmx.com
+     Expire-Date: 0
+     Passphrase: abc
+     # Do a commit here, so that we can later print "done" :-)
+     %commit
+     %echo done
+EOF
+gpg --batch --generate-key foo
+rm -rf foo
 
 # Setup oh-my-zsh
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -63,3 +84,5 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/riywo/ndenv ~/.ndenv
 # Add node-build plugin for ndenv
 git clone https://github.com/riywo/node-build.git ~/.ndenv/plugins/node-build
+
+chsh `whoami` -s /bin/zsh
