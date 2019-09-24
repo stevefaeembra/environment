@@ -5,8 +5,6 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="agxs"
 ZSH_THEME="msmall-agnoster"
 
 # Example aliases
@@ -31,7 +29,8 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ansible aws colorize colored-man-pages chucknorris debian django docker docker-compose extract git git-extras gnu-utils history-substring-search kate kubectl mvn node npm perl postgres python taskwarrior tmux vault vagrant yarn)
+plugins=(ansible aws colorize colored-man-pages chucknorris django docker docker-compose extract git git-extras gnu-utils history-substring-search kate kubectl mvn node npm perl postgres python taskwarrior tmux vault vagrant yarn z zsh-syntax-highlighting)
+#plugins=(colorize colored-man-pages docker docker-compose git git-extras gnu-utils tmux vault z zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -45,15 +44,11 @@ setopt SHARE_HISTORY
 #bindkey '^[[B' history-beginning-search-forward
 
 # Environment Variables.
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-export MVN_HOME=/opt/apache-maven-3.3.3
-export GRADLE_HOME=/opt/gradle-2.8
-export JMETER_HOME=/opt/apache-jmeter-2.13
-export NDENV=$HOME/.ndenv
-export CHROME_BIN=/usr/bin/chromium
-export RIPGREP_HOME=/opt/ripgrep-0.8.0-x86_64-unknown-linux-musl
+export NODENV_HOME="$HOME/.nodenv"
+export PYENV_HOME="$HOME/.pyenv"
 
-export PATH=$RIPGREP_HOME:$NDENV/bin:$HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
+export PATH=$PYENV_HOME/bin:$NODENV_HOME/bin:$HOME/bin:$HOME/local/bin:$HOME/.local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
+#export PATH=$PYENV_HOME/bin:$NODENV_HOME/bin:$HOME/bin:$HOME/local/bin:$HOME/.local/bin:/usr/local/bin:/bin:/usr/bin:/usr/games
 
 export EDITOR=emacs
 export PAGER=less
@@ -75,17 +70,17 @@ alias rm='rm -v'
 alias pjson='python -m json.tool'
 
 # Windoze machine(s).
-alias lui='rdesktop -g 1024x768 -u msmall1 -d ed -p - lui.edina.ac.uk'
-alias assynt1='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt1.edina.ac.uk'
-alias assynt2='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt2.edina.ac.uk'
-alias assynt3='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt3.edina.ac.uk'
-alias culmor1='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor1-at.edina.ac.uk'
-alias culmor2='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor2-at.edina.ac.uk'
-alias cadcorp1='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-1.edina.ac.uk'
-alias cadcorp2='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-2.edina.ac.uk'
-alias cadcorp3='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-3.edina.ac.uk'
-alias cadcorpbeta='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-beta.edina.ac.uk'
-alias iona='rdesktop -g 1024x768 -u edina -p - dlib-iona.ucs.ed.ac.uk'
+#alias lui='rdesktop -g 1024x768 -u msmall1 -d ed -p - lui.edina.ac.uk'
+#alias assynt1='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt1.edina.ac.uk'
+#alias assynt2='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt2.edina.ac.uk'
+#alias assynt3='rdesktop -g 1024x768 -u msmall1 -d ed -p - assynt3.edina.ac.uk'
+#alias culmor1='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor1-at.edina.ac.uk'
+#alias culmor2='rdesktop -g 1024x768 -u msmall1 -d ed -p - culmor2-at.edina.ac.uk'
+#alias cadcorp1='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-1.edina.ac.uk'
+#alias cadcorp2='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-2.edina.ac.uk'
+#alias cadcorp3='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-3.edina.ac.uk'
+#alias cadcorpbeta='rdesktop -g 1024x768 -u msmall1 -d ed -p - dm-cadcorp-beta.edina.ac.uk'
+#alias iona='rdesktop -g 1024x768 -u edina -p - dlib-iona.ucs.ed.ac.uk'
 
 # Get a long listing using colours and human readable values for file size.
 alias l='ls -lh --color=auto'
@@ -105,10 +100,10 @@ alias df='df -h'
 alias vi='vim'
 alias ssh='ssh -X'
 alias dc='cd'
-alias et='ssh -p1973 -X homer'
-alias ide='/opt/sts-bundle/sts-3.7.3.RELEASE/STS'
+#alias et='ssh -p1973 -X homer'
+#alias ide='/opt/sts-bundle/sts-3.7.3.RELEASE/STS'
 #alias ack='ack-grep --ignore-dir=target -i'
-alias bc='bc -l'
+#alias bc='bc -l'
 
 # Query the debian package manager database on already installed packages.
 # USAGE: cinst <pkgname>.
@@ -177,21 +172,21 @@ alias gpn='git push --no-verify'
 alias grev='git revert'
 
 #alias mvn='mvn-color'
-alias mpre='mvn release:prepare'
-alias mper='mvn release:perform -Dgoals=deploy'
-alias mpreskip='mvn release:prepare -Darguments="-DskipITs"'
-alias mp='mvn package'
-alias mpt='mvn package -Dmaven-test.skip=true'
+#alias mpre='mvn release:prepare'
+#alias mper='mvn release:perform -Dgoals=deploy'
+#alias mpreskip='mvn release:prepare -Darguments="-DskipITs"'
+#alias mp='mvn package'
+#alias mpt='mvn package -Dmaven-test.skip=true'
 
 
-alias vu='vagrant up'
-alias vd='vagrant destroy -f'
-alias vh='vagrant halt'
-alias vsh='vagrant ssh'
-alias vp='vagrant provision'
-alias vps='ps -ef | grep -V grep | grep -i vboxheadless'
+#alias vu='vagrant up'
+#alias vd='vagrant destroy -f'
+#alias vh='vagrant halt'
+#alias vsh='vagrant ssh'
+#alias vp='vagrant provision'
+#alias vps='ps -ef | grep -V grep | grep -i vboxheadless'
 
-alias ki='kinit msmall1@EASE.ED.AC.UK'
+#alias ki='kinit msmall1@EASE.ED.AC.UK'
 
 alias diff='colordiff -u'
 
@@ -226,24 +221,33 @@ function dex() {
   docker save -o "$1".tar "$1"
 }
 
-# Minikube Aliases
-alias mkd='minikube dashboard'
+# AWS CLI aliases
+alias al='eval $(aws ecr get-login --no-include-email --region eu-west-1)'
 
-alias python="python3"
+# Minikube Aliases
+#alias mkd='minikube dashboard'
+
 alias gup='for f in `ls`; do cd $f; git pull; cd ..; done'
 
-export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
+#export MAVEN_OPTS="-Djava.security.auth.login.config=doesnotexist"
 
 # Prevent deprecation warning message.
 unset GREP_OPTIONS
 
-# NDENV
-eval "$(ndenv init -)"
+# Nodenv
+eval "$(nodenv init -)"
 
 # Correct previous console commands.
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 # Stormer ReleaseToken
-export GITHUB_TOKEN=0385a88b513ebfb5e1ddeb17f3d654f0d2688ce0
+#export GITHUB_TOKEN=0385a88b513ebfb5e1ddeb17f3d654f0d2688ce0
+export GITHUB_TOKEN=03d495b960e845ba6f56310429e173b904ebd770
 
 export HUBOT_JENKINS_AUTH_TOKENS='{"mark.small":"dfc2cf3de31e57f475ac9fa1ed505d9d"}'
+
+export SSH_USER=$USER
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

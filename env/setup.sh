@@ -81,8 +81,9 @@ git clone git://github.com/tpope/vim-sensible.git
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Add Node Version manager
-git clone https://github.com/riywo/ndenv ~/.ndenv
+git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 # Add node-build plugin for ndenv
-git clone https://github.com/riywo/node-build.git ~/.ndenv/plugins/node-build
+mkdir -p "$(nodenv root)"/plugins
+git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
 
 chsh `whoami` -s /bin/zsh
