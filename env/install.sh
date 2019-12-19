@@ -22,6 +22,9 @@ add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 wget -q https://dl-ssl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
 add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
 
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+add-apt-repository "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ buster main"
+
 apt upgrade
 apt install -y docker-ce docker-ce-cli containerd.io docker-compose google-chrome-stable code slack-desktop spotify-client
 
