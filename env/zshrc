@@ -30,8 +30,7 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ansible aws chucknorris colorize colored-man-pages chucknorris debian django docker docker-compose extract git git-extras gnu-utils history-substring-search jsontools kate kubectl minikube node npm perl pipenv postgres python ripgrep taskwarrior terraform tmux vault vagrant vscode yarn z zsh-syntax-highlighting)
-#plugins=(colorize colored-man-pages docker docker-compose git git-extras gnu-utils tmux vault z zsh-syntax-highlighting)
+plugins=(ansible aws chucknorris colorize colored-man-pages chucknorris debian django docker docker-compose extract git git-extras gnu-utils history-substring-search jsontools kate kubectl minikube node npm perl pipenv postgres python ripgrep taskwarrior terraform tmux vault vagrant vscode yarn z)
 
 source $ZSH/oh-my-zsh.sh
 
