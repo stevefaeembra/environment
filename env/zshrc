@@ -212,6 +212,7 @@ alias dh='docker stop'
 # Run command in already running container e.g. dr <image name< <command>
 alias dr='docker run -it'
 alias dre='docker run -it --entrypoint /bin/bash'
+alias dcrup='docker-compose build --force-rm --no-cache'
 
 function drl() {
   docker run --rm -it "$1" bash
