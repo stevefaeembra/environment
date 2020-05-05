@@ -282,8 +282,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Needed for AWS SAM
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-#eval $(/bin/brew shellenv)
+eval $(/home/msmall/.linuxbrew/bin/brew shellenv)
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
