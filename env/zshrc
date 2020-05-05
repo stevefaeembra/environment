@@ -261,7 +261,6 @@ unset GREP_OPTIONS
 eval "$(nodenv init -)"
 
 # Correct previous console commands.
-#eval $(thefuck --alias)
 
 # Stormer ReleaseToken
 #export GITHUB_TOKEN=0385a88b513ebfb5e1ddeb17f3d654f0d2688ce0
