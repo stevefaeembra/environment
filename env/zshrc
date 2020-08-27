@@ -46,9 +46,9 @@ setopt SHARE_HISTORY
 # Environment Variables.
 export NODENV_HOME="$HOME/.nodenv"
 export PYENV_HOME="$HOME/.pyenv"
+#export HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
 
-export PATH=$PYENV_HOME/bin:$NODENV_HOME/bin:$HOME/bin:$HOME/local/bin:$HOME/.local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin:/home/linuxbrew/.linuxbrew/bin/
-#export PATH=$PYENV_HOME/bin:$NODENV_HOME/bin:$HOME/bin:$HOME/local/bin:$HOME/.local/bin:/usr/local/bin:/bin:/usr/bin:/usr/games
+export PATH=$PYENV_HOME/bin:$NODENV_HOME/bin:$HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin:/snap/bin
 
 export EDITOR=emacs
 export PAGER=less
@@ -230,6 +230,10 @@ function ri() {
   convert $1 -resize $2\! $3
 }
 
+function ksdv() {
+  kubectl get secret $1 -o yaml | grep $2 | awk '{print $2}' | base64 --decode
+}
+
 # AWS CLI aliases
 alias al='eval $(aws ecr get-login --no-include-email --region eu-west-1)'
 
@@ -282,7 +286,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Needed for AWS SAM
-eval $(/home/msmall/.linuxbrew/bin/brew shellenv)
+#eval $(/home/msmall/.linuxbrew/bin/brew shellenv)
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -304,3 +309,6 @@ fi
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
+
+export PIPENV_VENV_IN_PROJECT=1
+
