@@ -48,26 +48,29 @@ rm -rf $HOME/.profile\
        $HOME/.ackrc \
        $HOME/.ssh/config
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 # Recreate from configured.
-ln -s $HOME/.environment/env/profile $HOME/.profile
-ln -s $HOME/.environment/env/bashrc $HOME/.bashrc
-ln -s $HOME/.environment/env/bashrc_mark-small $HOME/.bashrc_mark-small
-ln -s $HOME/.environment/env/bashrc_as $HOME/.bashrc_as
-ln -s $HOME/.environment/env/emacs $HOME/.emacs
-ln -s $HOME/.environment/env/emacs.d $HOME/.emacs.d
-ln -s $HOME/.environment/env/gitconfig $HOME/.gitconfig
-ln -s $HOME/.environment/env/gitmessage $HOME/.gitmessage
-ln -s $HOME/.environment/env/gitignore $HOME/.gitignore
-ln -s $HOME/.environment/env/vimrc $HOME/.vimrc
-ln -s $HOME/.environment/env/inputrc $HOME/.inputrc
-ln -s $HOME/.environment/env/zshrc $HOME/.zshrc
-ln -s $HOME/.environment/env/fonts $HOME/.fonts
-ln -s $HOME/.environment/env/k5login $HOME/.k5login
-ln -s $HOME/.environment/env/msmall-agnoster.zsh-theme $HOME/.oh-my-zsh/themes/msmall-agnoster.zsh-theme
-ln -s $HOME/.environment/env/m2 $HOME/.m2
-ln -s $HOME/.environment/env/tmux.conf $HOME/.tmux.conf
-ln -s $HOME/.environment/env/ackrc $HOME/.ackrc
-ln -s $HOME/.environment/env/config $HOME/.ssh/config
+ln -s $DIR/.environment/env/profile $HOME/.profile
+ln -s $DIR/.environment/env/bashrc $HOME/.bashrc
+ln -s $DIR/.environment/env/bashrc_mark-small $HOME/.bashrc_mark-small
+ln -s $DIR/.environment/env/bashrc_as $HOME/.bashrc_as
+ln -s $DIR/.environment/env/emacs $HOME/.emacs
+ln -s $DIR/.environment/env/emacs.d $HOME/.emacs.d
+ln -s $DIR/.environment/env/gitconfig $HOME/.gitconfig
+ln -s $DIR/.environment/env/gitmessage $HOME/.gitmessage
+ln -s $DIR/.environment/env/gitignore $HOME/.gitignore
+ln -s $DIR/.environment/env/vimrc $HOME/.vimrc
+ln -s $DIR/.environment/env/inputrc $HOME/.inputrc
+ln -s $DIR/.environment/env/zshrc $HOME/.zshrc
+ln -s $DIR/.environment/env/shell_secrets $HOME/.shell_secrets
+ln -s $DIR/.environment/env/fonts $HOME/.fonts
+ln -s $DIR/.environment/env/k5login $HOME/.k5login
+ln -s $DIR/.environment/env/msmall-agnoster.zsh-theme $HOME/.oh-my-zsh/themes/msmall-agnoster.zsh-theme
+ln -s $DIR/.environment/env/m2 $HOME/.m2
+ln -s $DIR/.environment/env/tmux.conf $HOME/.tmux.conf
+ln -s $DIR/.environment/env/ackrc $HOME/.ackrc
+ln -s $DIR/.environment/env/config $HOME/.ssh/config
 
 # Setup pathogen for vim.
 mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
