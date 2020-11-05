@@ -4,25 +4,9 @@ Host homer
   User msmall
 
 # Astrosat
-Host hoth jenkins
-  Hostname hoth.internal.astrosat.space
-  User     mark.small
-
-Host ansible
-  Hostname ansible-awx-01.common.ew1.aws.internal.astrosat.space
-  User     mark.small
-
-Host metrics
-  Hostname metrics-01.common.ew1.aws.internal.astrosat.space
-  User     mark.small
-
-Host testing
-  Hostname 172.16.0.34
-  User     ubuntu
-  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/common-default.pem
-
-Host staging-production
-  Hostname 172.16.56.16
-  User     ubuntu
-  SendEnv SSH_USER
-  IdentityFile /home/msmall/downloads/secrets/aws_private_keys/thermcert-production.pem
+Host data1
+    Hostname 192.168.100.23
+    User mark.small
+Host data2
+    Hostname 192.168.100.24
+    User mark.small
