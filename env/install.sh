@@ -25,6 +25,8 @@ add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stab
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 add-apt-repository "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ buster main"
 
+wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O- | sudo apt-key add -
+
 apt upgrade
-apt install -y docker-ce docker-ce-cli containerd.io docker-compose google-chrome-stable code slack-desktop spotify-client
+apt install -y docker-ce docker-ce-cli containerd.io docker-compose google-chrome-stable code slack-desktop spotify-client postgresql
 
