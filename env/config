@@ -10,3 +10,6 @@ Host data1
 Host data2
     Hostname 192.168.100.24
     User mark.small
+Host discovery
+    Hostname 192.168.100.28
+    User mark.small

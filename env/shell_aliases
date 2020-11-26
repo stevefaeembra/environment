@@ -1,0 +1,156 @@
+# Aliases
+
+alias top='htop'
+alias vless='vim -u /usr/share/vim/vimcurrent/macros/less.vim'
+alias rm='rm -v'
+alias pjson='python -m json.tool'
+
+# Get a long listing using colours and human readable values for file size.
+alias l='ls -lh --color=auto'
+# Get a long listing using colours and human readable values for file size.
+# plus all hidden files too.
+alias la='ls -lah --color=auto'
+# Get a long listing of directories only using colours, human readable.
+alias ld='ls -lahd --color=auto */'
+# Get a long listing of files by date descending.
+alias lt='ls -lhrt --color=auto'
+
+# List process owned by current user.
+alias mps='ps -fu $USER'
+alias h='history'
+alias du='du -h'
+alias df='df -h'
+alias vi='vim'
+alias ssh='ssh -X'
+alias dc='cd'
+
+# Query the debian package manager database on already installed packages.
+# USAGE: cinst <pkgname>.
+alias cinst='dpkg -l | egrep'
+# List files in package.
+alias plist='dpkg -L '
+# Find which package a file belongs to.
+alias pin='dpkg -S'
+# Search for packages to install.
+# USAGE: psearch <pkgname>.
+alias psearch='apt-cache search'
+# Prints the name of each package currently installed
+# USAGE: pinst <pkgname>.
+alias pinst='apt-cache pkgnames | egrep'
+# Show info on packages e.g. dependencies etc,
+# USAGE pdep <pkgname>.
+alias pdep='apt-cache showpkg'
+# Describe package.
+# USAGE: pdesc <pkgname>.
+alias pdesc='apt-cache show'
+alias upd='apt-get update'
+alias upg='apt-get upgrade'
+alias dist='apt-get dist-upgrade'
+alias hold=apt-mark hold'
+alias unhold=apt-mark unhold'
+alias afl='apt-file list'
+
+
+alias gt='git tag -n'
+alias gm='git merge --ff-only'
+alias gd='git diff -w --'
+alias gdc='git diff -w --cached --'
+alias gs='git stash'
+alias gsl='git stash list'
+alias gsp='git stash pop'
+alias gsc='git stash clear'
+alias gss='git stash show -p'
+alias gf='git fetch'
+alias gfd='git fetch && git diff $(current_branch) origin/$(current_branch)'
+alias gcl='git clone'
+alias gg='git log --stat'
+alias gl='git pull --ff-only --rebase'
+alias gbs='git branch-status'
+alias gr='git rebase'
+alias gcf='git clean -fd'
+alias grp='git remote prune origin'
+alias gpo='git push -u origin'
+alias gfa='git fetch --all'
+alias gfl='git fetch && git log $(current_branch) origin/$(current_branch)'
+alias gbl='git blame'
+alias grhh='git reset --hard'
+alias gsh='git show'
+alias gsk='git stash --keep-index'
+alias gsu='git submodule update --init --recursive'
+alias gpa='for f in `ls`; do echo $f; cd $f; git pull; cd ..; done'
+alias gpn='git push --no-verify'
+alias grev='git revert'
+
+alias diff='colordiff -u'
+
+# Docker Aliases
+alias dps='docker ps -a'
+alias dk='docker kill'
+alias drm='docker rm -v'
+alias dti='docker rm -v $(docker ps -a -q -f status=exited) && docker rmi $(docker images -f "dangling=true" -q)'
+alias de='docker exec -it'
+alias dla='docker container ls -a'
+alias dil='docker image ls'
+alias di='docker image' ls'
+alias di='docker image' rm'
+alias dcc='docker commit -p'
+alias dcl='docker load -i'
+alias dip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
+# Start docker compose in `detatched` mode.
+alias ddup='docker-compose up -d --build'
+# Start docker compose in `interactive` mode.
+alias dup='docker-compose up --build'
+alias dh='docker stop'
+# Run command in already running container e.g. dr <image name< <command>
+alias dr='docker run -it'
+alias dre='docker run -it --entrypoint /bin/bash'
+alias dcrup='docker-compose build --force-rm --no-cache'
+
+function drl() {
+  docker run --rm -it "$1" bash
+}
+
+function dsh() {
+  docker exec -it "$1" /bin/bash
+}
+
+function dex() {
+  docker save -o "$1".tar "$1"
+}
+
+function ri() {
+  convert $1 -resize $2\! $3
+}
+
+function ksdv() {
+  kubectl get secret $1 -o yaml | grep $2 | awk '{print $2}' | base64 --decode
+}
+
+function kas() {
+  kubectl get secret $1 -o json | jq '.data | with_entries(.value |= @base64d)'
+}
+
+# AWS CLI aliases
+alias al1='eval $(aws ecr get-login --no-include-email --region eu-west-1)'
+alias al2='aws ecr get-login-password --region eu-west-1 | docker login 339570402237.dkr.ecr.eu-west-1.amazonaws.com --username AWS --password-stdin'
+
+alias gup='for f in `ls`; do cd $f; git pull; cd ..; done'
+
+# terraform aliases
+alias tf='terraform fmt'
+alias tv='terraform validate'
+alias tp='terraform plan'
+alias tap='terraform apply'
+alias tdes='terraform destroy'
+alias tg='terraform graph'
+alias ti='terraform init'
+alias tsh='terraform show'
+alias tdes='terraform '
+alias tdes='terraform '
+
+alias rq='convert -strip -quality'
+
+# Get all pods in Terminated / Evicted State
+alias epods='kubectl get pods -n default | egrep -i "Terminated|Evicted" | awk "{print $1 }"'
+alias depods='kubectl get pods -n default | egrep -i "Terminated|Evicted" | cut -d " " -f 1 | xargs kubectl delete pod --force=true --wait=false --grace-period=0'
+

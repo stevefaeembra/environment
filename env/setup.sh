@@ -63,6 +63,7 @@ ln -s $DIR/.environment/env/gitignore $HOME/.gitignore
 ln -s $DIR/.environment/env/vimrc $HOME/.vimrc
 ln -s $DIR/.environment/env/inputrc $HOME/.inputrc
 ln -s $DIR/.environment/env/zshrc $HOME/.zshrc
+ln -s $DIR/.environment/env/shell_aliases $HOME/.shell_aliases
 ln -s $DIR/.environment/env/shell_secrets $HOME/.shell_secrets
 ln -s $DIR/.environment/env/fonts $HOME/.fonts
 ln -s $DIR/.environment/env/k5login $HOME/.k5login
