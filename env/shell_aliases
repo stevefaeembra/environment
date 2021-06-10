@@ -130,6 +130,10 @@ function kas() {
   kubectl get secret $1 -o json | jq '.data | with_entries(.value |= @base64d)'
 }
 
+function kph() {
+  kubectl describe pods -l app=$1,instance=$2 | grep -A 5 Conditions
+}
+
 # AWS CLI aliases
 alias al1='eval $(aws ecr get-login --no-include-email --region eu-west-1)'
 alias al2='aws ecr get-login-password --region eu-west-1 | docker login 339570402237.dkr.ecr.eu-west-1.amazonaws.com --username AWS --password-stdin'
@@ -148,9 +152,28 @@ alias tsh='terraform show'
 alias tdes='terraform '
 alias tdes='terraform '
 
+# terragrunt aliases
+# alias tgp='terragrunt plan'
+# alias tga='terragrunt apply'
+# alias tgaa='terragrunt apply-all'
+# alias tgap='terragrunt apply -auto-approve'
+
 alias rq='convert -strip -quality'
 
 # Get all pods in Terminated / Evicted State
 alias epods='kubectl get pods -n default | egrep -i "Terminated|Evicted" | awk "{print $1 }"'
 alias depods='kubectl get pods -n default | egrep -i "Terminated|Evicted" | cut -d " " -f 1 | xargs kubectl delete pod --force=true --wait=false --grace-period=0'
 
+alias experimentation='ssh -i ~/downloads/orbis_experimentation_management ubuntu@54.73.142.239 -D 5555'
+
+# Skateboarding
+alias ollie='mplayer -ss 776 -endpos 17:20 ~/docs/mystuff/skateboarding/SMS1.mp4'
+alias f180='mplayer -ss 1040 -endpos 21:15 ~/docs/mystuff/skateboarding/SMS1.mp4'
+alias b180='mplayer -ss 1270 -endpos 25:30 ~/docs/mystuff/skateboarding/SMS1.mp4'
+alias psit='mplayer -ss 1530 -endpos 25:30 ~/docs/mystuff/skateboarding/SMS1.mp4'
+alias fsit='mplayer -ss 1855 -endpos 35:00 ~/docs/mystuff/skateboarding/SMS1.mp4'
+alias hflp='mplayer -ss 2100 -endpos 41:25 ~/docs/mystuff/skateboarding/SMS1.mp4'
+alias kflp='mplayer -ss 2485 -endpos 48:35 ~/docs/mystuff/skateboarding/SMS1.mp4'
+
+# Bastion login
+alias bas='ssh mark.small@bastion.eu-west-1.testing.astrosat.net -D 5555'
