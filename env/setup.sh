@@ -90,4 +90,19 @@ git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 mkdir -p ~/.nodenv/plugins
 git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 
+# Add pyenv
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+cd ~/.pyenv && src/configure && make -C src && cd -
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
+
+cd ~/.pyenv/plugins/python-build/../.. && git pull && cd -
+
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
+
 chsh `whoami` -s /bin/zsh
