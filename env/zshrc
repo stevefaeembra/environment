@@ -47,7 +47,7 @@ setopt SHARE_HISTORY
 export NODENV_HOME="$HOME/.nodenv"
 export PYENV_ROOT="$HOME/.pyenv"
 
-export PATH=$PYENV_ROOT/bin:$NODENV_HOME/bin:$HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin:/snap/bin
+export PATH=/usr/local/bin:$PYENV_ROOT/bin:$NODENV_HOME/bin:$HOME/bin:$HOME/local/bin:/usr/sbin:/root/bin:/usr/local/bin:/bin:/usr/bin:/usr/games:/sbin
 
 export EDITOR=emacs
 export PAGER=less
