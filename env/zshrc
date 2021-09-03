@@ -72,18 +72,21 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-#     ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
-# fi
-# if [[ ! "$SSH_AUTH_SOCK" ]]; then
-#     eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
-# fi
+eval $(~/.linuxbrew/bin/brew shellenv)
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
+fi
 
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
+# Unset when using the OLSP
 export PIPENV_VENV_IN_PROJECT=1
-
 
 source ~/.shell_aliases
 source ~/.shell_secrets
+
