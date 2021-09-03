@@ -67,12 +67,10 @@ unset GREP_OPTIONS
 eval "$(nodenv init -)"
 
 export SSH_USER=$USER
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-# fi
 
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 #     ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
