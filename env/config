@@ -1,63 +1,25 @@
-Host homer
-  Port 1973
-  Hostname 217.155.193.113
-  User msmall
-
 Host office
   Hostname office.astrosat.space
-  User mark.small
+  User steven.kay
 
 # Astrosat
 Host data1
     Hostname 192.168.100.23
-    User mark.small
+    User steven.kay
     ProxyJump office
 Host data2
     Hostname 192.168.100.24
-    User mark.small
+    User steven.kay
     ProxyJump office
 Host discovery
     Hostname 192.168.100.28
-    User mark.small
+    User steven.kay
     ProxyJump office
 Host rusty1
   HostName 192.168.100.41
-    User mark.small
+    User steven.kay
     ProxyJump office
 Host rusty2
   HostName 192.168.100.42
-    User mark.small
+    User steven.kay
     ProxyJump office
-
-# Thermcert
-Host manager
-  HostName 18.203.47.205
-  User ubuntu
-
-Host ds-manager-1
-    Hostname 172.16.0.34
-    User ubuntu
-    IdentityFile ~/downloads/secrets/aws_private_keys/common-default.pem
-
-# Vagrant
-Host rusty
-  HostName 127.0.0.1
-  User vagrant
-  Port 2222
-  UserKnownHostsFile /dev/null
-  StrictHostKeyChecking no
-  PasswordAuthentication no
-  IdentityFile /home/msmall/dev/projects/github/copernicus-infrastructure/.vagrant/machines/rusty/virtualbox/private_key
-  IdentitiesOnly yes
-  LogLevel FATAL
-
-Host default
-  HostName 127.0.0.1
-  User vagrant
-  Port 2222
-  UserKnownHostsFile /dev/null
-  StrictHostKeyChecking no
-  PasswordAuthentication no
-  IdentityFile /home/msmall/dev/projects/vagrant/infrastructure/.vagrant/machines/default/virtualbox/private_key
-  IdentitiesOnly yes
-  LogLevel FATAL
