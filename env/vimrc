@@ -1,5 +1,3 @@
-execute pathogen#infect()
-
 set ts=2
 set cindent shiftwidth=2
 
@@ -20,7 +18,6 @@ syntax on
 filetype plugin indent on
 
 set background=dark
-colorscheme solarized
 
 hi normal ctermbg=none
 map <F12> :hi normal ctermbg=none<CR>
