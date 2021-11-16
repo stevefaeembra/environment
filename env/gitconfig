@@ -1,6 +1,6 @@
 [user]
-	name = Mark Small
-	email = mark.small@astrosat.space
+	name = stevefaeembra
+	email = stevendkay@gmail.com
 
 [color]
         diff = auto
@@ -28,6 +28,7 @@
 	out = log --oneline origin/master..master
 	pull = pull --rebase
 	add = add -A
+	lol = log --oneline
 [bash]
 	showDirtyState = true
 [diff]

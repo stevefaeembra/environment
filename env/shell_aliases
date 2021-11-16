@@ -176,4 +176,4 @@ alias hflp='mplayer -ss 2100 -endpos 41:25 ~/docs/mystuff/skateboarding/SMS1.mp4
 alias kflp='mplayer -ss 2485 -endpos 48:35 ~/docs/mystuff/skateboarding/SMS1.mp4'
 
 # Bastion login
-alias bas='ssh mark.small@bastion.eu-west-1.testing.astrosat.net -D 5555'
+alias bas='ssh steven.kay@bastion.eu-west-1.testing.astrosat.net -D 5555'
