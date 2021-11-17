@@ -76,6 +76,9 @@ git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 mkdir -p ~/.nodenv/plugins
 git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 
+# set up personal theme (optional)
+cp ~/themes/punctual.zsh-theme  ~/.oh-my-zsh/custom/themes/punctual.zsh-theme
+
 # Add pyenv
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 cd ~/.pyenv && src/configure && make -C src && cd -
